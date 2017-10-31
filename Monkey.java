@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Monkey
+class Monkey
 {
   public static String sound;
   public static String leader;

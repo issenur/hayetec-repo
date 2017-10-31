@@ -92,7 +92,7 @@ class Widereciever extends Runningback
   }
 }
 
-class Game
+class RunningbackDriver
 {
   public static void main(String [] args)
   {

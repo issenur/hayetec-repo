@@ -1,8 +1,7 @@
-package firstPackage;
 
-public class BinarySearch 
+class BinarySearch 
 {
-	public static int key = 13;
+	public static int key = 2;
 	public static int[] element = new int[10];
 	static int left = 0;
 	static int mid;
