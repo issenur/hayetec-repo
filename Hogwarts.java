@@ -1,35 +1,42 @@
 class Map<Key, Value>
 {
-  private Key keys;
-  private Value values;
+  private Key [] keys;
+  private Value[] values;
   private int count;
 
   public Map(int length)
   {
     count = 0;
-    if (length == 0)
+    if (length < 0)
       {
         throw new IllegalArgumentException("Length can not be less than 0.");
       }
-      keys = newwwww (Key[])Object[20];
-      values = new (Value[])Object[20];
+      keys = (Key[]) new Object[length];
+      values = (Value[]) new Object[length];
   }
+
   public void put(Key key, Value value)
   {
-    for (int index = 0; index < count; index++)
+    for (int index = 0; index <= count; index++)
     {
-      if (key == keys[index])
+      if (isEqual(key,keys[index]))
       {
-        (value = values[index]);
+        System.out.println("Never Here");
+        values[index] = value;
+        break;
+
       }
-      else if((keys.length < count) && (values.length < count))
+      else if((keys.length > count) && (values.length > count))
       {
-        keys[index]=key;
-        values[index]=value;
+        keys[count]=key;
+        values[count]=value;
+        count = count + 1;
+      
+        break;
       }
       else
       {
-        throw new IllegalArgumentException("Array is full");
+        break;
       }
     }
   }
@@ -42,44 +49,52 @@ class Map<Key, Value>
     }
     else
     {
-      where(key);
+      return values[where(key)];
     }
   }
 
-  public boolean isIn(String key)
+  public boolean isIn(Key key)
   {
-    for (int index = 0; (index < count); index++)
+    for (int index = 0; index < count; index++)
     {
       if (isEqual(key,keys[index]))
       {
-        return True;
+        return true;
       }
     }
-    return False;
+    return false;
   }
+
   private boolean isEqual(Key leftKey, Key rightKey)
   {
-    if (leftkey == null||rightKey == null)
+    if (leftKey == null||rightKey == null)
       {
-        return leftkey == rightkey;
+        return leftKey == rightKey;
       }
     else
       {
-        leftkey.equals(rightkey);
+        return leftKey.equals(rightKey);
       }
     }
 
-
   private int where(Key key)
   {
-    for (int index = 0; index <count; index++)
+    for (int index = 0; index < count; index++)
     {
-      if (isEqual(key,keys))
+      if (isEqual(key,keys[index]))
       {
         return index;
       }
     }return -1;
   }
+
+  public void display() {
+    for (int i = 0; i < keys.length; i++) {
+      System.out.print(keys[i] + ": " + values[i] + ", ");
+    }
+    System.out.println();
+  }
+
 }
 
 class Hogwarts
@@ -127,6 +142,8 @@ class Hogwarts
     {
       System.out.println("No Joanne");          //  No Joanne     2 points.
     }
+
+    map.display();
 
     map.put("Ron",   "Hermione");
     map.put("Albus", "Gellert");
