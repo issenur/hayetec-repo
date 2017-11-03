@@ -15,6 +15,7 @@ class Runningback
     recieve = originalRunningback.recieve;
     touchdown = originalRunningback.touchdown;
     jerseyNumber = originalRunningback.jerseyNumber;
+
   }
   public Runningback(String nickName, int rush, int recieve, int touchdown, int jerseyNumber)
   {
