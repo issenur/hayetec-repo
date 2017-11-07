@@ -1,24 +1,11 @@
 class RunnyStack<Base>
 {
-  /*
-
-  . Each instance of
-  Run represents a run of objects. You will receive no points for this
-  assignment if you use arrays in any way! The class Run must have three
-  private slots that have the following names and types. The slot object
-  points to the Base object that appears in the run. The slot length is an
-  int that is the length of the run. The slot next points to the instance of
-   Run that is immediately below this one on the stack, or to null. It must
-   also have a private constructor that initializes these slots.
-
-    Third, your push method must test non-null objects for equality using their equals methods. It must use the Java ‘==’ operator only for testing null objects. It is helpful to define an extra private method called isEqual that takes two objects as arguments, and tests if they are equal. If either object is null, then isEqual uses ‘==’. If neither object is null, then isEqual uses equals.
-
-    Fourth, RunnyStack’s methods are not allowed to print things. If you were writing RunnyStack in the Real World, then it might be part of some larger program. You don’t know if that larger program should print things.*/
   private class Run
   {
     private Base object;
     private Run next;
     private int length;
+
     private Run(Base object, Run next, int length)
     {
       this.object = object;
@@ -26,39 +13,90 @@ class RunnyStack<Base>
       this.length = length;
     }
   }
+
+  private Run top;
+  private int length;
+  private int run;
+
   public RunnyStack()
   {
-
+    top = null;
+    length = 0;
+    run = 0;
   }
 
   public int depth()
   {
-
+    return length;
   }
 
   public boolean isEmpty()
   {
-
+    return top == null;
   }
 
   public Base peek()
   {
-
+    if(isEmpty())
+    {
+      throw new IllegalStateException();
+    }
+    else
+    {
+      return top.object;
+    }
   }
 
   public void pop()
   {
-
+    if(isEmpty())
+    {
+      throw new IllegalStateException();
+    }
+    else
+    {
+      if (top.length > 1)
+      {
+        top.length = top.length - 1;
+      }
+      else
+      {
+        top = top.next;
+        run = run - 1;
+      }
+      length = length - 1;
+    }
   }
 
   public void push(Base object)
   {
-
+    if ((top != null) && (isEqual(object, top.object)))
+    {
+      top.length = top.length + 1;//path to
+    }
+    else
+    {
+      top = new Run(object, top, 1);//path to add an object
+      run = run + 1;
+    }
+    length = length + 1;
   }
 
   public int runs()
   {
+    return run;
+  }
 
+  public boolean isEqual(Base object, Base otherObject)
+  {
+    if(object == null)
+    {
+      return (object == otherObject);
+    }
+    else
+    {
+      return (object.equals(otherObject));
+    }
   }
 }
 //
@@ -108,7 +146,6 @@ class Camembert
     System.out.println(s.peek());            //  A          1 point
     System.out.println(s.depth());           //  1          1 point
     System.out.println(s.runs());            //  1          1 point
-
     System.out.println(s.isEmpty());         //  false      1 point
 
     s.push("B");

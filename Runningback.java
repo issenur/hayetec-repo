@@ -1,11 +1,11 @@
 class Runningback
 {
-  public String nickName = "journey Man";
+  public String nickName;
   public static String whatRaiderFansBelieve = "Bronocos Suck!";
-  private int rush = 5;
-  private int recieve = 0;
-  private int jerseyNumber = 99;
-  private int touchdown = 0;
+  private int rush;
+  private int recieve;
+  private int jerseyNumber;
+  private int touchdown;
 
 
   public Runningback(Runningback originalRunningback)
@@ -15,17 +15,9 @@ class Runningback
     recieve = originalRunningback.recieve;
     touchdown = originalRunningback.touchdown;
     jerseyNumber = originalRunningback.jerseyNumber;
+
   }
   public Runningback(String nickName, int rush, int recieve, int touchdown, int jerseyNumber)
-  {
-    setRunningback(nickName, rush, recieve, touchdown, jerseyNumber);
-  }
-  public Runningback(String nickName, int jerseyNumber)
-  {
-    setRunningback(nickName, rush, recieve, touchdown, jerseyNumber);
-  }
-
-  public void setRunningback(String nickName, int rush, int recieve, int touchdown, int jerseyNumber)
   {
     this.nickName = nickName;
     this.rush = rush;
@@ -33,12 +25,19 @@ class Runningback
     this.touchdown = touchdown;
     this.jerseyNumber = jerseyNumber;
   }
+  public Runningback(String nickName, int jerseyNumber)
+  {
+    setRunningback(nickName, jerseyNumber);
+     this.rush = 666;
+     this.recieve = 666;
+     this.touchdown  = 666;
+  }
+
 
   public void setRunningback(String nickName,int jerseyNumber)
   {
     this.nickName = nickName;
     this.jerseyNumber = jerseyNumber;
-    /*I wanna say for Runnning back that are started with a bla*/
   }
   public void tellMeAboutHim()
   {
