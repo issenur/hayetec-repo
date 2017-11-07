@@ -12,7 +12,6 @@ class RunnyStack<Base>
       this.next = next;
       this.length = length;
     }
-
   }
 
   private Run top;
@@ -57,16 +56,15 @@ class RunnyStack<Base>
     else
     {
       if (top.length > 1)
-  			{
-  				top.length = top.length - 1;
-  			}
-  			else
-  			{
-  				top = top.next;
-
-          run = run - 1;
-  			}
-  			length = length - 1;
+      {
+        top.length = top.length - 1;
+      }
+      else
+      {
+        top = top.next;
+        run = run - 1;
+      }
+      length = length - 1;
     }
   }
 
@@ -90,16 +88,16 @@ class RunnyStack<Base>
   }
 
   public boolean isEqual(Base object, Base otherObject)
-	{
-		if (object == null)
-		{
-			return (object == otherObject);
-		}
-		else
-		{
-			return (object.equals(otherObject));
+  {
+    if(object == null)
+    {
+      return (object == otherObject);
     }
-	}
+    else
+    {
+      return (object.equals(otherObject));
+    }
+  }
 }
 //
 //  Tests for CSci 1913 Lab 8
