@@ -1,81 +1,111 @@
-import java.util.Iterator;
+//  ARRAY QUEUE. A fixed length queue represented as a circular array.
 
-class ArrayQueue<Item> implements Iterable<Item>
+class ArrayQueue <Base>
 {
+	public class Iterator
+	{
+		private int where;
+		private int rearIterator;
+		private Base[] objectsIterator;
 
-	private Item[] q;
-	private int head=0,tail=0,capacity;
+		private Iterator(int where, int rear, Base[] objects)
+		{
+			this.where = where;
+			this.rearIterator = rear;
+			objectsIterator = objects;
+		}
+		public boolean hasNext()
+		{
+			return where != rearIterator;
+		}
 
-	//iterator class
-	public Iterator<Item> iterator()
+		public Base next()
+		{
+			if(!hasNext())
+			{
+				throw new IllegalStateException("Iterator is down");
+			}
+			else
+			{
+				where = (where + 1 ) % objectsIterator.length;
+				Base temp = objectsIterator[where];
+				return temp;
+			}
+		}
+	}
+	private int    front;    //  Index of front object in OBJECTS.
+	private int    rear;     //  Index of rear object in OBJECTS.
+	private Base[] objects;  //  The OBJECTs in the queue.
+
+//  Constuctor. Make a new empty queue that can hold SIZE - 1 elements.
+
+	public ArrayQueue(int size)
+	{
+		if (size <= 1)
+		{
+			throw new IllegalArgumentException("Illegal size.");
+		}
+		else
+		{
+			front   = 0;
+			rear    = 0;
+			objects = (Base []) new Object[size];
+		}
+	}
+	public Iterator iterator()
+	{
+		return new Iterator(front , rear, objects);
+	}
+	//  DEQUEUE. Remove an object from the queue.
+
+  public Base dequeue()
   {
-    return new ArrayIterator();
+    if (front == rear)
+    {
+      throw new IllegalStateException("Queue is empty.");
+    }
+    else
+    {
+      front = (front + 1) % objects.length;
+      Base temp = objects[front];
+      objects[front] = null;
+      return temp;
+    }
   }
 
-  private class ArrayIterator implements Iterator<Item>
+//  ENQUEUE. Add a new OBJECT to the queue.
+
+  public void enqueue(Base object)
   {
-		private int i = head;
-		public boolean hasNext()
+    int nextRear = (rear + 1) % objects.length;
+    if (front == nextRear)
     {
-      return i<tail;
+      throw new IllegalStateException("Queue is full.");
     }
-		public void remove()
+    else
     {
-
+      rear = nextRear;
+      objects[rear] = object;
     }
-		public Item next()
-    {
-      return q[i++];
-    }
-	}
+  }
 
+//  IS EMPTY. Test if the queue is empty.
 
-	@SuppressWarnings("unchecked")
-	public ArrayQueue(int c)
+  public boolean isEmpty()
   {
-		q = (Item[]) new Object[c];
-		capacity = c;
-	}
+    return front == rear;
+  }
 
-	public boolean isEmpty()
+//  IS FULL. Test if the queue is full.
+
+  public boolean isFull()
   {
-		return (tail==head);
-	}
-
-	public void enqueue(Item item)
-  {
-		if(tail ==  capacity )
-			resize(2*capacity);
-		q[tail++] = item;
-	}
-
-	public Item dequeue()
-  {
-		if(isEmpty())
-			return null;
-		Item item = q[head]; //if we returned this line, then loitering
-		q[head++]=null; //this line to avoid loitering
-		if ((tail-head)==(capacity/4) && tail-head>1){resize (capacity/2);}
-		return item;
-	}
-
-	private void resize (int c)
-  {
-
-		@SuppressWarnings("unchecked")
-		Item[] copy = (Item[]) new Object[c];
-		for(int i=0;i<capacity-head;i++)
-    {
-			copy[i]=q[(i+head)];
-			if(copy[i]==null) break;
-		}
-		tail=tail-head;
-		capacity = c;
-		head=0;
-		q = copy;
-	}
+    return front == (rear + 1) % objects.length;
+  }
 }
-  class Queterator
+//  QUETERATOR. Test ARRAY QUEUE's ITERATOR class. It's worth 20 points.
+
+class Queterator
 {
 
 //  MAIN. Start execution here.
@@ -119,6 +149,7 @@ class ArrayQueue<Item> implements Iterable<Item>
     ArrayQueue<String>.Iterator second = queue.iterator();
     while (second.hasNext())
     {
+
       System.out.println(second.next());   //  X Y Z one per line    5 points
     }
 
@@ -130,5 +161,4 @@ class ArrayQueue<Item> implements Iterable<Item>
     System.out.println(queue.dequeue());   //  Z                     1 point
     System.out.println(queue.isEmpty());   //  true                  1 point
   }
-
 }

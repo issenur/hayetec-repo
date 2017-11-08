@@ -2,14 +2,14 @@ class Oak<Rndm>
 {
   private class Runningback
   {
-    public Rndm nickName;
+    public String nickName;
     private int rush;
     private int recieve;
     private int jerseyNumber;
     private int touchdown;
     private Runningback next;
 
-    public Runningback(Rndm nickName, int rush, int recieve, int touchdown, int jerseyNumber, Runningback next)
+    public Runningback(String nickName, int rush, int recieve, int touchdown, int jerseyNumber, Runningback next)
     {
       this.nickName = nickName;
       this.rush = rush;
@@ -33,7 +33,7 @@ class Oak<Rndm>
     return top == null;
   }
 
-  public Rndm peek()
+  public void peek()
   {
     if(isEmpty())
     {
@@ -41,7 +41,6 @@ class Oak<Rndm>
     }
     else
     {
-      return (top.nickName);
     }
   }
 
@@ -53,11 +52,17 @@ class Oak<Rndm>
     }
     else
     {
+      System.out.println("");
+      System.out.print("|Name:" + top.nickName);
+      System.out.print("|RushYards: " + top.rush);
+      System.out.println("|JerseyNumber: " + top.jerseyNumber + "| ");
+      System.out.println("");
       top = top.next;
+
     }
   }
 
-  public void push(Rndm nickName, int rush, int recieve, int touchdown, int jerseyNumber)
+  public void push(String nickName, int rush, int recieve, int touchdown, int jerseyNumber)
   {
       top = new Runningback(nickName, rush, recieve, touchdown, jerseyNumber, top);
   }
@@ -69,9 +74,12 @@ class OakDriver
   {
     Oak<Runningback> oak = new Oak<Runningback>();
 
-  oak.push("Zeke", 1000, 240, 11, 24);
-  System.out.println(oak.peek());
-
+  oak.push("BeastMode ", 1000, 240, 11, 24);
+  oak.push("AP ", 1020, 320, 4, 28);
+  oak.push("DFad ", 860, 220, 8, 20);
+  oak.pop();
+  oak.pop();
+  oak.pop();
 
   }
 
