@@ -1,0 +1,53 @@
+package assignment4;
+
+public class Person
+{
+	private String name;
+
+	public Person()
+	{
+		this.name = getName();
+	}
+	
+	public Person(String theName)
+	{
+		setName(theName);
+	}
+	
+	public Person(Person originalPerson)
+	{
+		name = originalPerson.name;
+	}
+	
+	public String getName()
+	{
+		 return name;
+	}
+	
+	public void setName(String theName)
+	{
+		this.name = theName;
+	}
+	
+	public String toString()
+	{
+		return ("Name: " + getName() );
+	}
+	
+	public boolean equals(Person object, Person otherObject)
+	{
+		 if((object == null)||(otherObject == null)
+		  {
+			 return object==otherObject;
+		  }
+		  else 
+		  {
+			 return object.name.equals(otherObject.name);
+		  }
+	}
+	
+	public static void main(String[] args)
+	{
+		
+	}
+}
