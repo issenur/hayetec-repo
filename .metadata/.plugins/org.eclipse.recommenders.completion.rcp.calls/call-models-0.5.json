@@ -1,0 +1,12 @@
+{
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "UNRESOLVED",
+    "error": "Could not transfer artifact jre:jre:zip:call:1.0.0 from/to remote-models (http://download.eclipse.org/recommenders/models/kepler/): Error transferring file, server returned status code 307"
+  },
+  "C:\\cygwin64\\home\\Isse\\Laptop_Local_Repo\\FirstProject\\src": {
+    "location": "C:\\cygwin64\\home\\Isse\\Laptop_Local_Repo\\FirstProject\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\cygwin64\\home\\Isse\\Laptop_Local_Repo\\FirstProject\\src\u0027. Skipped."
+  }
+}

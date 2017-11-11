@@ -1,0 +1,20 @@
+package assignment4;
+
+public class VehicleDriver 
+{
+
+	public static void main(String[] args)
+	{
+		Vehicle v = new Vehicle("Jaguar" ,12, "John Doe");
+		Vehicle v1 = new Vehicle(v);
+		/*System.out.println(v.getManufacturer());
+		System.out.println(v.getCylinders());
+		System.out.println(v.getOwner());*/
+		v1.setOwner("Jane Doe");
+		System.out.println(v.toString());
+		System.out.println(v1.toString());
+		
+		
+	}
+
+}
