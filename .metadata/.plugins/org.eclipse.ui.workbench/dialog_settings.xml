@@ -15,6 +15,13 @@
 		</list>
 		<list key="textArray">
 		</list>
+<<<<<<< HEAD
+=======
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="181" key="DIALOG_Y_ORIGIN"/>
+		<item value="739" key="DIALOG_X_ORIGIN"/>
+>>>>>>> ed5f2f2e78b92f94fa528db710475ead7c2b3553
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
