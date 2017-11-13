@@ -5,7 +5,6 @@ public class FiguresDemo
 	public static void main(String[] args)
 	{
 		Rectangle r = new Rectangle();
-		Triangle r1 = new Triangle(6,10,8);
 		Triangle t = new Triangle();
 		for(int i = 0; i < 28; i++)
 			System.out.print("-");
@@ -28,7 +27,7 @@ public class FiguresDemo
 		r.erase();
 		System.out.println("End of erase() method for Rectangle");
 		System.out.println("\nProcess completed.");
-		r1.draw();
+	
 		
 	}
 }
