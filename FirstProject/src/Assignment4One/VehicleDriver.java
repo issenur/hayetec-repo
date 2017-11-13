@@ -25,7 +25,10 @@ public class VehicleDriver
 		System.out.println(tchevy.equals(chevy));
 	
 		chevy.setTruck("chevy", 6, "nobody", 0.75, 2);
-		System.out.println(chevy.toString());
+		chevy.display();
+		chevy.display();
+		chevy.display();
+		
 		System.out.println(chevy.getCapacity());
 		System.out.println(chevy.getLoad());
 				

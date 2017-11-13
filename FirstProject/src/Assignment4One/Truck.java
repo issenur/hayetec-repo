@@ -54,7 +54,10 @@ public class Truck extends Vehicle
 	    	return ( (super.equals(otherTruck)) &&
 	            (load == otherTruck.load) && (capacity == otherTruck.capacity));
   }
-  
+  public void display()
+  {
+	  System.out.println(this);
+  }
   public String toString()
   {
 	  return(  name +  " ("  + cylinders +  " cylinders  " 
