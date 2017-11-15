@@ -1,37 +1,16 @@
-<<<<<<< HEAD
 INDEX VERSION 1.126+/home/nurxx050/Main_Repo/.metadata/.plugins/org.eclipse.jdt.core
-821608291.index
-502732891.index
-3512161136.index
-925982370.index
-3485262699.index
-2253745042.index
-1089239932.index
 3066711521.index
-813341167.index
-1628687906.index
 2359322674.index
-2744878784.index
-3883508318.index
-3539432263.index
-22503740.index
+821608291.index
+1628687906.index
+3485262699.index
+3512161136.index
+1089239932.index
+813341167.index
 3530540584.index
-=======
-INDEX VERSION 1.126+C:\cygwin64\home\Isse\Laptop_Local_Repo\.metadata\.plugins\org.eclipse.jdt.core
-305854171.index
-107573622.index
-3974580528.index
-1995173708.index
-573543369.index
-4108727661.index
-1498219845.index
-1697886153.index
-4155206848.index
-4041092966.index
-1115467115.index
-3133528496.index
-30765161.index
-3065916431.index
-163172794.index
-1299022128.index
->>>>>>> ac872f8d1cfb86296430293f3a584daf45d38c10
+3539432263.index
+2253745042.index
+3883508318.index
+502732891.index
+22503740.index
+925982370.index
