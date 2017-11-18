@@ -13,10 +13,10 @@ public class practice {
 		}
 		
 		int n =1;
-		
-		for(int i = 9; j < n; i = i-1)
+		int j =9;
+		for(int i = 9; j < n; i = j--)
 		{
-			b[0][i]  = ' ';
+			b[0][j]  = ' ';
 		}
 		
 		for(int i = 0; i < m; i ++)

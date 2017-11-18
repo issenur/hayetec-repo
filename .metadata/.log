@@ -1461,6 +1461,7 @@ Java Model Exception: Java Model Status [Unknown javadoc format for System [in S
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1009 2017-11-12 22:10:21.443
 !MESSAGE Unknown javadoc format for System [in System.class [in java.lang [in C:\Program Files\Java\jre7\lib\rt.jar]]]
+<<<<<<< HEAD
 !SESSION 2017-11-13 19:30:01.453 -----------------------------------------------
 eclipse.buildId=4.3.2.M20140221-1700
 java.version=1.7.0_80
@@ -1475,3 +1476,14 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+=======
+!SESSION 2017-11-13 16:18:43.406 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-11-13 16:18:48.679
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+>>>>>>> 249b54d39cc07e55f13f90c8fdcddbc5321a6393
