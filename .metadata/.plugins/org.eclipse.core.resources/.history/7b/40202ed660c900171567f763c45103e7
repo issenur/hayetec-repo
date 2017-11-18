@@ -59,7 +59,7 @@ public class Vehicle
   
   public boolean equals(Vehicle otherVehicle)
 	{
-	    if ((otherVehicle == null)||(getClass() != otherVehicle.getClass()))
+	    if ((otherVehicle == null)||(this.getClass() != otherVehicle.getClass()))
 	        return false;
 	    else
 	        return ( (name.equals(otherVehicle.name)) &&

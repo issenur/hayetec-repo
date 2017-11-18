@@ -39,10 +39,12 @@ class Runningback
     this.nickName = nickName;
     this.jerseyNumber = jerseyNumber;
   }
+
+
   public void tellMeAboutHim()
   {
     System.out.print ( nickName +" wears number " + jerseyNumber);
-    System.out.println (" and has scored " + touchdown + " Touchdowns during his best season.");
+    System.out.println (" and has scored " + touchdown + " Touchdowns " + recieve + " recieving yards this season." );
 
   }
   public String getNickName()
@@ -54,7 +56,10 @@ class Runningback
   {
     return rush;
   }
-
+  public void setRecieve(int Recieve)
+  {
+    this.recieve = recieve;
+  }
   public int getRecieve()
   {
     return recieve;
@@ -69,7 +74,34 @@ class Runningback
   {
     return touchdown;
   }
+  public boolean equals(Object otherObject)
+  {
+    if (otherObject == null)
+    {
+      return false;
+    }
+    else if (this.getClass() != otherObject.getClass())
+    {
+      return false;
+    }
+    else
+    {
+      Runningback otherRunningback = (Runningback)otherObject;
+      return(nickName.equals(otherRunningback.nickName))&&(jerseyNumber == otherRunningback.jerseyNumber);
+      }
+    }
 
+  public boolean equalss(Runningback otherRunningback)
+  {
+    if (otherRunningback == null)
+    {
+      return false;
+    }
+    else
+    {
+      return nickName.equals(otherRunningback.nickName)&&this.getRecieve()==otherRunningback.getRecieve();
+    }
+  }
 }
 class Widereciever extends Runningback
 {
@@ -79,6 +111,11 @@ class Widereciever extends Runningback
   {
     super(nickName, rush, recieve, touchdown, jerseyNumber);
     setWiderciever(hands);
+  }
+
+  public Widereciever(Widereciever originalWideReciever)
+  {
+    super(originalWideReciever);
   }
 
   public void setWiderciever(String hands)
@@ -96,33 +133,14 @@ class RunningbackDriver
   public static void main(String [] args)
   {
     Runningback adrianPeterson = new Runningback("Big AP ", 0, 0, 20, 28);
-    Runningback marshawnLynch = new Runningback("Beast Mode ", 0, 0, 16, 24);
+    Runningback marshawnLynch = new Runningback("Beast Mode ", 0, 0, 20, 28);
     Widereciever amariCooper = new Widereciever("Killa Coop ", 0, 0, 8, 89, "'s nickname on the field: Mr.Butter Fingers");
     Widereciever travisKelce = new Widereciever("Fake Gronk ", 0, 0, 13, 87, "'s nickname on the field:  Mr.Catchem All");
     Runningback lataviusMurray = new Runningback("Tay Train ", 28);
     Runningback purpleJesus = new Runningback(adrianPeterson);//Copy Constructor, creates a duplicate object with a different refernce varialbe
+    Widereciever ac = new Widereciever(amariCooper);
 
-    System.out.print(adrianPeterson.getNickName());
-    System.out.println(adrianPeterson.getJerseyNumber());
-    System.out.print(marshawnLynch.getNickName());
-    System.out.println(marshawnLynch.getJerseyNumber());
-    System.out.print(travisKelce.getNickName());
-    System.out.println(travisKelce.getJerseyNumber());
-    System.out.print(amariCooper.getNickName());
-    System.out.println(amariCooper.getJerseyNumber());
-    System.out.print(travisKelce.getNickName());
-    System.out.println(travisKelce.getHands());
-    System.out.print(amariCooper.getNickName());
-    System.out.println(amariCooper.getHands());
-    System.out.print(lataviusMurray.getNickName());
-    System.out.println(lataviusMurray.getJerseyNumber());
-    System.out.println(adrianPeterson.nickName);
-    System.out.println(Runningback.whatRaiderFansBelieve);
-    adrianPeterson.tellMeAboutHim();
     amariCooper.tellMeAboutHim();
-    travisKelce.tellMeAboutHim();
-    marshawnLynch.tellMeAboutHim();
-    lataviusMurray.tellMeAboutHim();
-    purpleJesus.tellMeAboutHim();
+
   }
 }

@@ -39,9 +39,6 @@ class Oak<Rndm>
     {
       throw new IllegalStateException();
     }
-    else
-    {
-    }
   }
 
   public void pop()
