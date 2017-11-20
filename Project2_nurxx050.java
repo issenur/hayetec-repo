@@ -36,7 +36,7 @@ class Poly
       {
         /*If you visit a Term whose expo slot
         is less than the parameter expo*/
-        if(expo > slahblahNode)
+        if(expo > right.expo)
         {
           /*then add the new
           Term immediately before that Term,*/
@@ -55,7 +55,7 @@ class Poly
         }
         /*If you visit a Term whose expo slot
         equals the parameter expo*/
-        else if(right.expo == right.expo)
+        else if(expo == right.expo)
         {
           /*then throw an IllegalArgumentException.*/
           throw new IllegalArgumentException();
