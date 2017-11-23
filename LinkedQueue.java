@@ -7,7 +7,8 @@ class LinkedQueue<Base>
 
     private Node(Base value, Node next)
     {
-
+      this.value = value;
+      this.next = next;
     }
   }
   private Node front;
