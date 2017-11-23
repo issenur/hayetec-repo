@@ -94,28 +94,62 @@ class Poly
   private void add(int coef, int expo)
   {
 
-  }
+  }*/
 
   public Poly minus()
   {
+    /*.First, make a new polynomial with no
+     Term’s.*/
+     Poly mine = new Poly();
+     Term left = head;
+     Term right = head.next;
+     while(right != null)
+     {
+       right.coef = -coef;
+       left = right;
+       right = right.next;
+     }
+     /*Poly np;
+     while()
+     {
+     new Poly();*/
 
-  }*/
+
+
+     /*Then visit each Term in this. Each
+     time you visit a Term, add a new Term to
+     the new polynomial by calling term. The
+     new Term has the same expo slot as the
+     Term you’re visiting, but its coef slot has
+     the opposite sign. After you’ve visited
+     all the terms, return the new polynomial.*/
+     /*The method minus returns a
+     new polynomial like this, but with Term’s
+     whose coef slots have the opposite signs.*/
+     return this;
+  }
 
   public String toString()
   {
     StringBuilder builder = new StringBuilder();
     Term temp = head.next;
-
-    while(temp != null)
+    if(temp == null)
     {
-      builder.append(temp.coef);
-      builder.append("x");
-      builder.append(temp.expo);
-      if(temp.next!= null)
+      builder.append("0");
+    }
+    else
+    {
+      while(temp != null)
       {
-        builder.append(" + ");
+        builder.append(temp.coef);
+        builder.append("x");
+        builder.append(temp.expo);
+        if(temp.next!= null)
+        {
+          builder.append(" + ");
+        }
+        temp = temp.next;
       }
-      temp = temp.next;
     }
     return builder.toString();
   }
@@ -125,13 +159,13 @@ class PollyEsther
 {
   public static void main(String[] args)
   {
-    //Poly p0 = new Poly();
+    Poly p0 = new Poly();
     Poly p1 = new Poly().term(1, 3).term(1, 1).term(1, 2);
-    Poly p2 = new Poly().term(2, 0);
+    Poly p2 = new Poly().term(2, 1).term(3, 2);
     //Poly p3 = p2.minus();
-
-    //System.out.println(p0);           //  0
-    //System.out.println(p1);           //  1x3 + 1x2 + 1x1
+    p2.minus();
+    System.out.println(p0);           //  0
+    System.out.println(p1);           //  1x3 + 1x2 + 1x1
     System.out.println(p2);           //  3x2 + 2x1
     //System.out.println(p3);           //  −3x2 − 2x1
 
