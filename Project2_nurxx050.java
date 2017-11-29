@@ -32,6 +32,7 @@ class Poly
     {
       Term left = head;
       Term right = head.next;
+
       if (head.next == null)
       {
         head.next = new Term(coef,expo, right);
@@ -154,7 +155,7 @@ class Poly
 
     if(temp == null)
     {
-      builder.append("0");
+      return "0";
     }
     else
     {
@@ -192,8 +193,8 @@ class PollyEsther
   public static void main(String[] args)
   {
     Poly p0 = new Poly();
-    Poly p1 = new Poly().term(1, 3).term(1, 2).term(1,1);
-    Poly p2 = new Poly().term(3, 2).term(2, 1);
+    Poly p1 = new Poly().term(1, 3).term(1, 1).term(1, 2);
+    Poly p2 = new Poly().term(2, 1).term(3, 2);
     Poly p3 = p2.minus();
 
     System.out.println(p0);           //  0
