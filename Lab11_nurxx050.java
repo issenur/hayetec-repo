@@ -1,13 +1,5 @@
 class Deque<Base>
 {
-  private Node head;
-  public Deque()
-  {
-    head = new Node(null,null,null);
-    head.left = head;
-    head.right = head;
-  }
-
   private class Node
   {
     private Base object;
@@ -21,66 +13,71 @@ class Deque<Base>
       this.right = right;
     }
   }
+  private Node head;
 
+  public Deque()
+  {
+    head = new Node(null, null, null);
+    head.right = head;
+    head.left = head;
+  }
 
   public void enqueueFront(Base object)
   {
-
+    Node temp = new Node(object, head, head.right);
+    head.right.left = temp;
+    head.right = temp;
   }
 
-  public void engueueRear(Base object)
+  public void enqueueRear(Base object)
   {
-    head.right = new Node(object, head, head.right);
+    Node temp = new Node( object, head.left, head);
+    head.left.right = temp;
+    head.left = temp;
   }
-
   public Base dequeueFront()
   {
+    Node temp;
+    Base objectOut;
+
+
     if(isEmpty())
     {
-      throw new IllegalStateException("Empty Queue");
+      throw new IllegalStateException();
     }
     else
     {
-      Base temp = front.value;
-      front = front.next;
-      if (front == null)//special case 2
-      {
-        rear = null;
-      }
-      return temp;
+      temp = head.right;
+      objectOut = head.right.object;
+      temp.right.left = temp.left;
+      temp.left.right = temp.right;
+      return objectOut;
     }
   }
 
   public Base dequeueRear()
   {
+    Node temp;
+    Base objectOut;
 
+    if(isEmpty())
+    {
+      throw new IllegalStateException();
+    }
+    else
+    {
+      temp = head.left;
+      objectOut = head.left.object;
+      temp.left.right = temp.right;
+      temp.right.left = temp.left;
+      return objectOut;
+    }
   }
-
-  public boolean  isEmpty()
+  public boolean isEmpty()
   {
-
+    return((head.left == head)&&(head.right == head));
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //  OBSERVATION DEQUE. Test the class DEQUE. 40 points total.
 
