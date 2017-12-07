@@ -47,6 +47,7 @@ class LinkedStack<Base>
     return top == null;
   }
 }
+
 class LinkedStackDriver
 {
   public static void main(String [] args)

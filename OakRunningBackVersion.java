@@ -17,7 +17,6 @@ class Oak<Rndm>
       this.touchdown = touchdown;
       this.jerseyNumber = jerseyNumber;
       this.next = next;
-
     }
   }
 
