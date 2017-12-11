@@ -1,29 +1,23 @@
 package HomeWorkPackage;
 
 
-import java.io.PrintWriter;
-import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
+import java.util.StringTokenizer;
+
 
 public class PrintStuff
 {
-
-    public void printMethod() throws FileNotFoundException
+    public static void main(String[] args)
     {
+        // creating string tokenizer
+        StringTokenizer st = new StringTokenizer("4+2-8-6+3","+-*");
 
-        PrintWriter qoral = null;
+        // moving to next element
 
-        try
+        while(st.hasMoreTokens())
         {
-            qoral = new PrintWriter(new FileOutputStream("isse.txt"));
-
+            System.out.println("Next element is : " + st.nextElement());
         }
-        catch (FileNotFoundException throwObj)
-        {
-            System.out.println("File Not Found");
-            System.exit(0);
-        }
-        qoral.close();
+        // checking next to next element
     }
-
 }
+
