@@ -142,6 +142,7 @@ class RunningbackDriver
 
 
     amariCooper.tellMeAboutHim();
+    System.out.println("yeeeeeeeeeeeeeeeeeeeee " + adrianPeterson.hashCode());
 
   }
 }

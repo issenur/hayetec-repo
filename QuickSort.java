@@ -1,9 +1,9 @@
-public void quickSort(int [] array, int leftEnd, int rightEnd)
+public void quickSort(int[] array, int leftEnd, int rightEnd)
 {
   int left = leftEnd;
   int right = rightEnd;
   int pivot = array[(leftEnd + rightEnd)/2];
-
+//*************************************
   do
   {
     while(array[left] < pivot)
@@ -23,6 +23,8 @@ public void quickSort(int [] array, int leftEnd, int rightEnd)
     }
   }
   while (left <= right);
+//^^^part of do while ************************
+
   if (leftEnd < right)
   {
     quickSort(array,leftEnd, right);
@@ -32,7 +34,7 @@ public void quickSort(int [] array, int leftEnd, int rightEnd)
     quickSort(array, left, rightEnd)
   }
 }
-
+///end of sort algorithm ***********************
 private void swap(int[] array, int left, int right)
 {
   int temp = array[left];
