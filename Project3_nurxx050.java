@@ -123,7 +123,7 @@ class BinarySearchTreeDriver
   {
 
     BinarySearchTree tree = new BinarySearchTree();
-    Nomenclator nomenclator = new Nomenclator("", true);
+    Nomenclator nomenclator = new Nomenclator("Factorials.java", true);
 
     while (nomenclator.hasNext())
     {

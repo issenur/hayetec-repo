@@ -39,6 +39,8 @@ class Sequence<Base>
     }
     objects[count] = object;
     count = count + 1;
+    /*After this method is done the
+    newObjects pointer dissapears*/
   }
 
   public Base get(int index)
@@ -112,7 +114,7 @@ class Sequence<Base>
   }
 }
 
-class sequenceDriver
+class SequenceDriver
 {
   public static void main(String[] args)
   {
@@ -120,6 +122,7 @@ class sequenceDriver
     s.add("A");
     s.add("B");
     s.add("C");
+    System.out.println(s.get(1));
 
     System.out.println(s);
   }

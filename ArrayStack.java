@@ -5,7 +5,7 @@ class ArrayStack<Base>
 
   public ArrayStack(int size)
   {
-    bases =(Base[]) new Object[size];
+    bases = (Base[]) new Object[size];
     count = 0;
   }
 
@@ -73,10 +73,16 @@ class ArrayStackDriver
     System.out.println(s.peek());
     s.push("A");
     System.out.println(s.peek());
-    s.pop();
+    System.out.println();
+    System.out.println();
+    System.out.println();
+
+
     System.out.println(s.peek());
     s.pop();
     System.out.println(s.peek());
+    s.pop();
+
 
   }
 }

@@ -1,45 +1,35 @@
 
-class BinarySearch 
+class BinarySearch
 {
-	public static int key = 2;
-	public static int[] element = new int[10];
-	static int left = 0;
-	static int mid;
-	static int right = element.length-1;
-	
-	public static void main(String[] args) 
+	static int[] element = new int[10];
+	public static void main(String[] args)
 	{
 		for (int i = 0; i < element.length; i++)
 		{
 			element[i] = i;
 		}
-		if (binarySearch(key, element)== -1)
-		{
-			System.out.println(" number " + key + " is not"
-					+ " in the array");
-		}
-		else 
-		{
-			System.out.println(key  + " is in slot number " + mid + "th slot of the array");
-		}
+
+		System.out.println(binarySearch(0, element));
 	}
-	
+
+
 	public static int binarySearch(int key, int [] element)
 	{
-		
-		int j = 0;
+		int left = 0;
+		int mid;
+		int right = element.length-1;
 		while(true)
 		{
 			if(left > right)
 			{
-				
+
 				return -1;
 			}
 			else
 			{
 				mid = (left + right)/2;
 			}
-			
+
 			if(key < mid)
 			{
 				right = mid - 1;

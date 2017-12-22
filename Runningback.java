@@ -140,7 +140,6 @@ class RunningbackDriver
     Runningback purpleJesus = new Runningback(adrianPeterson);//Copy Constructor, creates a duplicate object with a different refernce varialbe
     Widereciever ac = new Widereciever(amariCooper);
 
-    System.out.println(whatRaiderFansBelieve);
 
     amariCooper.tellMeAboutHim();
 
