@@ -6,9 +6,9 @@ class LinearSearch
 		for (int i = 0; i < element.length; i++)
 		{
 			element[i] = i;
-		}
+		
 
-		System.out.println(linearSearch(0, element));
+		System.out.println(linearSearch(11, element));
 	}
 
   public static int linearSearch(int key, int[] elements)
