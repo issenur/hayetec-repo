@@ -1,0 +1,297 @@
+
+
+
+Question #1)
+
+Base Case: power 0 x = x^0
+
+power 0 x 
+= 1.0
+by definition of power
+= x ^ 0
+by arthmetic
+
+Inductive Case: power (n+1) x = x^(n+1)
+
+Given power n x = x^n
+Show power (n+1) x= x^(n+1)
+
+
+power (n+1) x
+= x *. power((n+1)-1) x		
+by definition of power
+= x *. power(n) x		
+by arthmetic
+= x*x^(n)		        
+by the inductive hypothesis
+= x^(n+1)			
+by arthemetic
+
+
+
+
+
+
+
+Question #2)
+
+Base Case : power Zero x = x^toInt(Zero)
+
+power Zero x
+= 1.0 						
+by the definition of power
+= x^0						
+by arthmetic
+= x^toInt(Zero)					
+by definition of toInt
+
+
+Inductive Case: power (Succ n) x = x^toInt(Succ n)
+
+Given power n x = x^toInt(n)
+Show power (Succ n) x = x^toInt(Succ n)
+
+
+power Succ n x 
+= x*. power n x 				
+by the definition of power
+= x*. x^toInt(n)				
+by the induction hypothesis
+= x^(toInt(n) + 1)				
+by arthmetic 
+= x^(toInt(Succ n)
+by definition of toInt
+
+
+
+
+
+
+
+Question #3)
+
+Base Case: reverse (append [] lst2) = append (reverse lst2) (reverse [])
+
+reverse (append [] lst2) =
+= reverse (lst2)
+by definition of append
+= append (reverse (lst2)) ([]))
+by lemma 1
+= append ((reverse lst2) (reverse [])
+by definiton of reverse
+
+Inductive Case: reverse(append (x::xs) lst2) = 
+append (reverse lst2) (reverse (x::xs))
+
+Given: reverse(append xs lst2) = append (reverse lst2) (reverse xs)
+Show: reverse(append (x::xs) lst2) = append (reverse lst2) (reverse (x::xs))
+
+
+reverse(append (x::xs) lst2) 
+= reverse(x::(append xs lst2) =
+by definition of append
+= append (reverse(append xs lst)) [x]
+by defintion of reverse
+= append (append (reverse lst2) (reverse xs)) [x]
+by inductive hypothesis
+= append (reverse lst2) (append (reverese xs) [x])
+by lemma 2
+= append (reverse lst2) (reverse (x::xs))
+by definition of reverse
+
+
+-------------------------------
+lemma 1 begins here
+-------------------------------
+Base case: append [] [] = []
+
+append [] [] 
+= [] 
+by definition of append
+
+Inductive case: x::xs [] = x::xs 
+
+Given: append xs [] = xs
+Show: append  x::xs [] = x::xs
+
+append x::xs [] 
+= x::(append xs [])
+by definiton of append and ::
+= x::xs
+by the inductive hypothesis
+
+---------------------------------------
+lemma 1 ends here
+---------------------------------------
+
+
+
+
+
+---------------------------------------
+lemma 2 begins here
+---------------------------------------
+
+Base Case: append(append [] lst2) lst3 = append([] (append lst2 lst3))
+
+append(append([] lst2) lst3)
+= append(lst2 lst3) 
+by definition of append
+= []::(append lst2 lst3)
+by property of list and ::
+= append([] (append lst2 lst3))
+by the definition of append
+
+
+Inductive Case: append(append (x::xs) lst2) lst3 
+= append((x::xs) (append lst2 lst3))
+
+
+
+Given: append (append xs lst2) lst3 = append(xs (append lst2 lst3))
+Show: append (append x::xs lst2) lst3 = append(x::xs (append lst2 lst3))
+
+
+append(append(x::xs lst2) lst3)
+= append(x::(append xs lst2)) lst3
+by definition of append
+= x::append(append(xs lst2) lst3)
+by the definition of append
+= x::append(xs (append lst2 lst3))
+by inductive hypothesis
+= append ((x::xs) (append (lst2 lst3)))
+by the definition of append
+
+-------------------------------
+lemma 2 ends here
+-------------------------------
+
+
+
+
+
+Question #4)
+
+Base Case: someupper ([] @ lst2) = someupper [] || someupper lst2
+
+someupper ([] @ lst2)
+= someupper(lst2)
+= false || someupper lst2
+by property of ||
+= someupper[] || someupper lst2
+by definition of someupper
+
+
+
+Inductive Case: someupper(x::xs @ lst2) = someupper x::xs || lst2
+
+Given someupper(xs @ lst2) = someupper xs || someupper lst2
+Show someupper(x::xs @ lst2) = someupper x:xs || someupper lst2
+
+
+someupper ((x::xs) @ lst2)
+= someupper (x :: (xs @ lst2))
+by definition of @ and ::
+= isupper x || someupper(xs @ lst2)
+by defintion of someupper
+= isupper x || someupper xs || someupper lst2
+by the inductive hypothesis
+= someupper x::xs || someupper lst2
+by definition of someupper
+
+
+
+
+
+
+Question #5.)
+
+Base Case: someupper [] = foldupper []
+
+LEFT SIDE					RIGHT SIDE
+--------------------                            --------------------------
+someupper [] 		          = 		foldupper []
+               		            		=foldr upperor [] false	 
+						by definition of foldupper
+=false				  =		=false
+by definition of someupper                      by definition of foldr
+---------------------------   Base Case Done    --------------------------
+                       
+Inductive Case: someupper x::xs = 
+foldupper x::xs
+
+
+Given someupper xs 
+= foldupper xs
+
+
+Show someupper x::xs 
+= foldupper x::xs
+
+LEFT SIDE				RIGHT SIDE
+---------------------------             -----------------------------
+
+someupper x::xs 		=	foldupper x::xs
+= isupper x || someupper xs     =	= foldr upperor x::xs false
+by definition of someupper		by definition of foldupper
+
+					=upperor x (foldr upperor xs false)
+				        by the definition of foldr
+				        =upperor x (foldupper xs)
+					by definition of foldupper
+= isupper x || foldupper xs     =	= isupper x || foldupper xs
+by the inductive hypothesis		by the definition of upperor
+--------------------       Inductive Case Done  ----------------------------
+
+
+
+
+
+
+Question #6.)
+
+Base case: mintree (Leaf x) 
+= fold_mintree (Leaf x)
+
+LEFT SIDE			           RIGHT SIDE
+-------------------------                  --------------------------------
+
+mintree (Leaf x)		=	   fold_mintree (Leaf x) 
+				=	   =tfold (fun x -> x) min (Leaf x)
+		                           by definition of fold_mintree
+                                           = (fun x -> x) x
+					   by defintion tfold
+= x				=          = x
+by definition of mintree		   by the defintion of lambda func 
+------------------------  Base Case Done   --------------------------------
+
+
+
+
+Inductive Case: mintree(Branch(tree1, tree2)) 
+= fold_mintree(Branch(tree1, tree2))
+
+
+Given:   mintree tree1 = fold_mintree tree1 
+         mintree tree2 = fold_mintree tree2
+
+Show: mintree(Branch(tree1, tree2))  = fold_mintree(Branch(tree1, tree2))
+
+LEFT SIDE					RIGHT SIDE
+-------------------------------------     ------------------------------------
+
+mintree(Branch(tree1, tree2))             fold_mintree(Branch(tree1, tree2))
+= min (mintree tree1) (mintree tree2) =   =(tfold (fun x -> x) 
+						min Branch(tree1, tree2))
+by definition of mintree		  by defintion of fold_mintree
+					     	  		
+				          = (min (tfold (fun x->x) min tree1) 
+						(tfold (fun x-> x) min tree1))	
+				          by defintion of tfold    
+
+ 		  
+=(min (fold_mintree tree1)	      = = (min (fold_mintree tree1) 
+		(fold_mintree tree2))	        	(fold_mintree tree2))
+by the inductive hypothesis              by the definition of tfold
+---------------------------Inductive Case Done-------------------------------
+

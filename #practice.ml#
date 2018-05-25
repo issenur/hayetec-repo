@@ -1,2 +1,0 @@
-let circle_circum_v1 r = 2.0*.3.1415*.r
-	      

@@ -1,1 +1,0 @@
-let inc_v1 = fun x -> x + 1

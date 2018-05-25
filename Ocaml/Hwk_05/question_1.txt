@@ -1,0 +1,49 @@
+Isse Nur
+nurxx050@umn.edu
+
+CALL BY VALUE
+
+sum (take 3 (evens_from 5 1))
+sum (take 3 (1+1:: evens_from (1-1) (1+1))
+sum (take 3 (1+1:: evens_from (0) (1+1))
+sum (take 3 (1+1::[]))
+sum (take 3 [2::[]])
+sum (2::take (3-1) [])
+sum (2::take 2 [])
+sum (2::[])
+2 + sum []
+2 + 0
+2
+
+CALL BY NAME
+
+sum (take 3 (evens_from 5 1))
+sum (take 3 (1+1:: evens_from (1-1) (1+1))
+sum (take 3 (2:: evens_from (1-1) (1+1)))
+sum (2:: take(3-1) evens_from (1-1) (1+1))
+2 + sum (take(3-1) evens_from (1-1) (1+1))
+2 + sum (take(3-1) evens_from (0) (1+1)
+2 + sum (take(3-1) [])
+2 + sum (take 2 [])
+2 + sum ([])
+2
+
+LAZY EVALUATION 
+
+sum (take 3 (evens_from 5 1))
+sum (take 3 (v:: evens_from (1-1) v) 
+where v = 1+1
+sum (take 3 (2:: evens_from (1-1) v))
+where v = 1+1
+sum (2:: take(3-1) evens_from (1-1) v)
+where v = 1+1
+2 + sum (take(3-1) evens_from (1-1) v)
+where v = 1+1
+2 + sum (take(3-1) evens_from (0) v
+where v = 1+1
+2 + sum (take(3-1) [])
+2 + sum (take 2 [])
+2 + sum ([])
+2
+
+
