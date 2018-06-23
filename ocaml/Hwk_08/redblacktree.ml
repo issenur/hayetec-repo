@@ -61,7 +61,7 @@ let  insert  x s =
       then balance (T(color, a, y , ins b))
       else s
 
-  in match ins s with
+
    |T(_,a,y,b) -> T(B,a,y,b)
    |E -> E 
 

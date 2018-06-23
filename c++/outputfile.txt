@@ -1,0 +1,26 @@
+Script started on 2018-06-22 20:00:18+0300
+104!p?3;4l4larrays.cpp	     formatter.cpp  hello_world.cpp    print_to_console.cpp
+arthitmetic.cpp  fors.cpp	input.txt	   string_stream.cpp
+debug		 get_line.cpp	logical.cpp	   typescript
+debug2.cpp	 0m01;32mgo0m		  min_max.cpp	     vivify.cpp
+debug.cpp	 header.cpp	pet_selection.cpp  write_read.cpp
+enum.cpp	 header.hpp	pointers.cpp
+0;issenur@acerhome: ~/hayetec-repo/c++01;32missenur@acerhome00m:01;34m~/hayetec-repo/c++00m$ 3P1P1Pcbe7b10P6@oc10Pcsebbsear3Pcnvidia-smiKingstnvidia-396
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+0;issenur@acerhome: ~/hayetec-repo/c++01;32missenur@acerhome00m:01;34m~/hayetec-repo/c++00m$
+0;issenur@acerhome: ~/hayetec-repo/c++01;32missenur@acerhome00m:01;34m~/hayetec-repo/c++00m$
+0;issenur@acerhome: ~/hayetec-repo/c++01;32missenur@acerhome00m:01;34m~/hayetec-repo/c++00m$ 6P3P1P1Pcbe7b10P6@oc10PcsebsearchfilesforCnvidia
+0;issenur@acerhome: ~/hayetec-repo/c++01;32missenur@acerhome00m:01;34m~/hayetec-repo/c++00m$ 11P6P3P1P1Pcbe7b10P6@op6P6@oc10Pcsebbsearlsmodo|fgrepCnouveau
+01;31mKnouveaumK	      1716224  2
+mxm_wmi 	       16384  1 01;31mKnouveaumK
+ttm		      106496  1 01;31mKnouveaumK
+wmi		       24576  5 wmi_bmof,intel_wmi_thunderbolt,acer_wmi,mxm_wmi,01;31mKnouveaumK
+i2c_algo_bit	       16384  2 01;31mKnouveaumK,i915
+drm_kms_helper	      167936  2 01;31mKnouveaumK,i915
+drm		      401408  20 01;31mKnouveaumK,i915,ttm,drm_kms_helper
+video		       40960  3 acer_wmi,01;31mKnouveaumK,i915
+0;issenur@acerhome: ~/hayetec-repo/c++01;32missenur@acerhome00m:01;34m~/hayetec-repo/c++00m$ exit
+exit
+
+Script done on 2018-06-22 20:01:28+0300

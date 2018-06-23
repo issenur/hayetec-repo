@@ -1,0 +1,51 @@
+c]104[!p[?3;4l[4l>arrays.cpp
+arthitmetic.cpp
+debug
+debug2.cpp
+debug.cpp
+enum.cpp
+formatter.cpp
+fors.cpp
+get_line.cpp
+go
+header.cpp
+header.hpp
+hello_world.cpp
+input.txt
+logfile.txt
+logical.cpp
+min_max.cpp
+outputfile.txt
+pet_selection.cpp
+pointers.cpp
+print_to_console.cpp
+string_stream.cpp
+typescript
+vivify.cpp
+write_read.cpp
+00:02.0 VGA compatible controller: Intel Corporation Device 591b (rev 04) (prog-if 00 [VGA controller])
+01:00.0 VGA compatible controller: NVIDIA Corporation GP106M [GeForce GTX 1060 Mobile] (rev a1) (prog-if 00 [VGA controller])
+ii  libnvidia-cfg1-396:amd64                   396.24-0ubuntu1~pop1                    amd64        NVIDIA binary OpenGL/GLX configuration library
+ii  libnvidia-common-396                       396.24-0ubuntu1~pop1                    all          Shared files used by the NVIDIA libraries
+ii  libnvidia-compute-396:amd64                396.24-0ubuntu1~pop1                    amd64        NVIDIA libcompute package
+ii  libnvidia-compute-396:i386                 396.24-0ubuntu1~pop1                    i386         NVIDIA libcompute package
+ii  libnvidia-decode-396:amd64                 396.24-0ubuntu1~pop1                    amd64        NVIDIA Video Decoding runtime libraries
+ii  libnvidia-decode-396:i386                  396.24-0ubuntu1~pop1                    i386         NVIDIA Video Decoding runtime libraries
+ii  libnvidia-encode-396:amd64                 396.24-0ubuntu1~pop1                    amd64        NVENC Video Encoding runtime library
+ii  libnvidia-encode-396:i386                  396.24-0ubuntu1~pop1                    i386         NVENC Video Encoding runtime library
+ii  libnvidia-fbc1-396:amd64                   396.24-0ubuntu1~pop1                    amd64        NVIDIA OpenGL-based Framebuffer Capture runtime library
+ii  libnvidia-fbc1-396:i386                    396.24-0ubuntu1~pop1                    i386         NVIDIA OpenGL-based Framebuffer Capture runtime library
+ii  libnvidia-gl-396:amd64                     396.24-0ubuntu1~pop1                    amd64        NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
+ii  libnvidia-gl-396:i386                      396.24-0ubuntu1~pop1                    i386         NVIDIA OpenGL/GLX/EGL/GLES GLVND libraries and Vulkan ICD
+ii  libnvidia-ifr1-396:amd64                   396.24-0ubuntu1~pop1                    amd64        NVIDIA OpenGL-based Inband Frame Readback runtime library
+ii  libnvidia-ifr1-396:i386                    396.24-0ubuntu1~pop1                    i386         NVIDIA OpenGL-based Inband Frame Readback runtime library
+ii  nvidia-compute-utils-396                   396.24-0ubuntu1~pop1                    amd64        NVIDIA compute utilities
+ii  nvidia-dkms-396                            396.24-0ubuntu1~pop1                    amd64        NVIDIA DKMS package
+ii  nvidia-driver-396                          396.24-0ubuntu1~pop1                    amd64        NVIDIA driver metapackage
+ii  nvidia-kernel-common-396                   396.24-0ubuntu1~pop1                    amd64        Shared files used with the kernel module
+ii  nvidia-kernel-source-396                   396.24-0ubuntu1~pop1                    amd64        NVIDIA kernel source package
+ii  nvidia-settings                            390.42-0ubuntu1                         amd64        Tool for configuring the NVIDIA graphics driver
+ii  nvidia-utils-396                           396.24-0ubuntu1~pop1                    amd64        NVIDIA driver support binaries
+ii  xserver-xorg-video-nvidia-396              396.24-0ubuntu1~pop1                    amd64        NVIDIA binary Xorg driver
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+

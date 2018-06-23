@@ -117,16 +117,25 @@ if ! shopt -oq posix; then
   fi                                                                            
 fi                                                                              
                                                                                 
-cd () {                                                                         
-     builtin cd "$@" && ls                                                      
-     }                                                                          
-     cd ~/hayetec-repo/c++                                                      
-                                                                                
-alias c='tput reset; ls'                                                        
-alias b='cd ..'                                                                 
-alias bb='cd ../../'                                                            
-alias e='cd'                                                                    
-alias ll='ls -la'                                                               
-alias sss='%s/foo/bar/gci'                                                      
-alias g='g++ -o k'                                                              
-alias k='./k'                                                                                                               
+ cd () {                                                                      
+      builtin cd "$@" && ls                                                   
+      }                                                                       
+      cd ~/hayetec-repo/c++                                                   
+                                                                              
+                                                                              
+ open () {                                                                    
+     if [ -d "$1" ]; then                                                     
+         cd -- "$1"                                                           
+     elif [ -f "$1" ]; then                                                   
+         vi -- "$1"                                                           
+     fi                                                                       
+ }                                                                            
+                                                                              
+ alias searchfilesfor='grep -rilwr'                                           
+ alias c='ls'                                                                 
+ alias b='cd ..'                                                              
+ alias bb='cd ../../'                                                         
+ alias ll='ls -la'                                                            
+ alias g='g++ -o go'                                                          
+ alias go='./go'                                                              
+                                                                                                         

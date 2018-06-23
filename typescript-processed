@@ -1,0 +1,26 @@
+Script started on 2018-06-22 01:08:04+0300
+arrays.cpp	 debug	     debug.cpp	formatter.cpp  get_line.cpp  header.cpp  hello_world.cpp  logical.cpp  pet_selection.cpp  print_to_console.cpp	vivify.cpp
+arthitmetic.cpp  debug2.cpp  enum.cpp	fors.cpp       go	     header.hpp  input.txt	  min_max.cpp  pointers.cpp	  string_stream.cpp	write_read.cpp
+issenur@acerhome:~/hayetec-repo/c++$ lspcia-vg|egrepi"VGAdcontroller"
+00:02.0 VGA compatible controller: Intel Corporation Device 591b (rev 04) (prog-if 00 [VGA controller])
+01:00.0 VGA compatible controller: NVIDIA Corporation GP106M [GeForce GTX 1060 Mobile] (rev a1) (prog-if 00 [VGA controller])
+issenur@acerhome:~/hayetec-repo/c++$ nvidia-smiegrepi"VGAdcontroller"
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+lspcia-vnnnr|operl/-lnet'printoif+/^\d+\:.+(\[\S+\:\S+\])/'e|'greptVGA /^\d+\:.+(\[\S+\:\S+\])/' | grep VGA
+00:02.0 VGA compatible controller [0300]: Intel Corporation Device [8086:591b] (rev 04) (prog-if 00 [VGA controller])
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP106M [GeForce GTX 1060 Mobile] [10de:1c20] (rev a1) (prog-if 00 [VGA controller])
+lspcia-vnnng|eperlG-lnen'printrif+/^\d+\:.+(\[\S+\:\S+\])/'e|'greptVGA /^\d+\:.+(\[\S+\:\S+\])/' | grep VGA
+00:02.0 VGA compatible controller [0300]: Intel Corporation Device [8086:591b] (rev 04) (prog-if 00 [VGA controller])
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP106M [GeForce GTX 1060 Mobile] [10de:1c20] (rev a1) (prog-if 00 [VGA controller])
+$slspciv-nnkr|pgrepA-iovgao-A3r"f+/^\d+\:.+(\[\S+\:\S+\])/'e|'greptVGA /^\d+\:.+(\[\S+\:\S+\])/' | grep VGA
+$: command not found
+sudodaptginstalldnvidia-396ller"c++$ lspcic-vnnnk||perlp-lnev'print if /^\d+\:.+(\[\S+\:\S+\])/' | grep VGA
+[sudo] password for issenur:
+Reading package lists... Done
+Building dependency tree... 50%
+Reading state information... Done
+E: Unable to locate package nvidia-396
+issenur@acerhome:~/hayetec-repo/c++$ exit
+
+Script done on 2018-06-22 01:09:02+0300
