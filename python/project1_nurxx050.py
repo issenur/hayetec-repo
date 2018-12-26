@@ -49,4 +49,4 @@ prez.add('Hussein')
 prez.add('Ahmed')
 prez.add('Nur')
 
-prez.make(7)
+print(prez.make(7))
