@@ -31,13 +31,16 @@ public class Location {
 		while(count > 0){                                                
 			count = count + 1;
 
-			if((count % 2 == 0) && ((digitNeed - strLen(n)) >= 0)){
+			if((count % 2 == 0) 
+			   && ((digitNeed - strLen(n)) >= 0)){
 				str = str + intToStr(n);
 				digitNeed = digitNeed - strLen(n);
-			}else if((count % 2 != 0) && (digitNeed - strLen(m) >= 0) {
+			}else if((count % 2 != 0) 
+			   && (digitNeed - strLen(m) >= 0) {
 				str = str + intToStr(m);
 				digitNeed = digitNeed - strLen(m);
-			}else if(((digitNeed - strLen(n)) < 0) && ((digitNeed - strLen(m)) < 0)){
+			}else if(((digitNeed - strLen(n)) < 0) 
+			   && ((digitNeed - strLen(m)) < 0)){
 				count = -1;
 			}
 		}
@@ -63,25 +66,15 @@ public class Location {
 	}
 	
 	public void addLoc(int n, int m, Location[] locArray) {
-	  locArray[toNumber(i-1,j)] = new Location(n,m,islandNum);
+	  locArray[hashIndex(n,m)] = new Location(n,m,islandNum);
 	}
 	
 	public boolean isNotNewLocation(int n, int m, 
 	  Location[] locArray){	
-	   if(numI < i){
-	      numI = i;
-		}
-		if(numJ < j){
-		   numJ = j;
-		}
 		
-		for(int l = 0 ; l < numI; l++) {
-			for(int k = 0; k < numJ; k++) {
-				if(!(locArray[toNumber(l,k)] == null) 
-				  && (equalsLocation(n, m, locArray[toNumber(l,k)]))) {
-             return true;
-				}
-			}
+			if(!(locArray[hashIndex(n,m)] == null) 
+			  && (equalsLocation(n, m, locArray[(hashIndex(n,m)]))) {
+			return true;
 		}
 		return false;
 	}
@@ -97,7 +90,7 @@ public class Location {
 				if((oneZeroMap[n][m] == 1) 
 				  && !(isNotNewLocation(n, m, locArray))) {
 					islandCountUp();
-					locArray[toNumber(i,j)] = new Location(-1, -1, islandNum);
+					locArray[hashIndex(n,m)] = new Location(-1, -1, islandNum);
 					recursiveSrc(locArray, oneZeroMap, n, m);
 				}
 			}
