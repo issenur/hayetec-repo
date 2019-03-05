@@ -1,0 +1,239 @@
+﻿1)
+MariaDB [dbms]> select DISTINCT * from Order_Detail;
+
++----------+---------+----------------------+------+--------+-----------+
+| OrderNum | LineNum | ProdNum              | Qty  | Color  | UnitPrice |
++----------+---------+----------------------+------+--------+-----------+
+|        3 |       1 | Bike28A              |    1 | Red    |    300.00 |
+|        6 |       1 | Bike28A              |    1 | Blue   |    259.00 |
+|        7 |       1 | Bike28A              | NULL | Green  |    525.00 |
+|        8 |       1 | Bike28B              |    1 | Red    |    455.00 |
+|        8 |       2 | ridinggloves         |    1 | White  |     60.00 |
+|        9 |       1 | Bike28B              |    1 | Blue   |    255.00 |
+|       10 |       1 | Bike28B              |    1 | Green  |    199.00 |
+|       11 |       1 | Moped77              |    1 | Black  |    955.00 |
+|       12 |       1 | Bike31A              |    1 | Red    |    525.00 |
+|       12 |       2 | Helmet               |    1 | Red    |     75.00 |
+|       13 |       1 | Bike31A              |    1 | Blue   |    455.00 |
+|       14 |       1 | Bike28               |    1 | Orange |    255.00 |
+|       15 |       1 | Bike28Cruiser        |    1 | White  |    199.00 |
+|       16 |       1 | Bike28Schwinn        |    1 | Red    |    955.00 |
+|       17 |       1 | SchwinBike28Mountain |    1 | Blue   |    855.00 |
++----------+---------+----------------------+------+--------+-----------+
+15 rows in set (0.001 sec)
+
+2) 
+MariaDB [dbms]> select DISTINCT * from Order_Detail where not ProdNum  = 'Bike31A';
+
++----------+---------+----------------------+------+--------+-----------+
+| OrderNum | LineNum | ProdNum              | Qty  | Color  | UnitPrice |
++----------+---------+----------------------+------+--------+-----------+
+|        3 |       1 | Bike28A              |    1 | Red    |    300.00 |
+|        6 |       1 | Bike28A              |    1 | Blue   |    259.00 |
+|        7 |       1 | Bike28A              | NULL | Green  |    525.00 |
+|        8 |       1 | Bike28B              |    1 | Red    |    455.00 |
+|        8 |       2 | ridinggloves         |    1 | White  |     60.00 |
+|        9 |       1 | Bike28B              |    1 | Blue   |    255.00 |
+|       10 |       1 | Bike28B              |    1 | Green  |    199.00 |
+|       11 |       1 | Moped77              |    1 | Black  |    955.00 |
+|       12 |       2 | Helmet               |    1 | Red    |     75.00 |
+|       14 |       1 | Bike28               |    1 | Orange |    255.00 |
+|       15 |       1 | Bike28Cruiser        |    1 | White  |    199.00 |
+|       16 |       1 | Bike28Schwinn        |    1 | Red    |    955.00 |
+|       17 |       1 | SchwinBike28Mountain |    1 | Blue   |    855.00 |
++----------+---------+----------------------+------+--------+-----------+
+13 rows in set (0.001 sec)
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3) 
+
+MariaDB [dbms]> select DISTINCT * from Order_Detail where LineNum  = '1';
+
++----------+---------+----------------------+------+--------+-----------+
+| OrderNum | LineNum | ProdNum              | Qty  | Color  | UnitPrice |
++----------+---------+----------------------+------+--------+-----------+
+|        3 |       1 | Bike28A              |    1 | Red    |    300.00 |
+|        6 |       1 | Bike28A              |    1 | Blue   |    259.00 |
+|        7 |       1 | Bike28A              | NULL | Green  |    525.00 |
+|        8 |       1 | Bike28B              |    1 | Red    |    455.00 |
+|        9 |       1 | Bike28B              |    1 | Blue   |    255.00 |
+|       10 |       1 | Bike28B              |    1 | Green  |    199.00 |
+|       11 |       1 | Moped77              |    1 | Black  |    955.00 |
+|       12 |       1 | Bike31A              |    1 | Red    |    525.00 |
+|       13 |       1 | Bike31A              |    1 | Blue   |    455.00 |
+|       14 |       1 | Bike28               |    1 | Orange |    255.00 |
+|       15 |       1 | Bike28Cruiser        |    1 | White  |    199.00 |
+|       16 |       1 | Bike28Schwinn        |    1 | Red    |    955.00 |
+|       17 |       1 | SchwinBike28Mountain |    1 | Blue   |    855.00 |
++----------+---------+----------------------+------+--------+-----------+
+13 rows in set (0.001 sec)
+
+
+
+
+4)
+MariaDB [dbms]> select DISTINCT * from Order_Detail where LineNum  = '1' and Color = 'Red';
+
++----------+---------+---------------+------+-------+-----------+
+| OrderNum | LineNum | ProdNum       | Qty  | Color | UnitPrice |
++----------+---------+---------------+------+-------+-----------+
+|        3 |       1 | Bike28A       |    1 | Red   |    300.00 |
+|        8 |       1 | Bike28B       |    1 | Red   |    455.00 |
+|       12 |       1 | Bike31A       |    1 | Red   |    525.00 |
+|       16 |       1 | Bike28Schwinn |    1 | Red   |    955.00 |
++----------+---------+---------------+------+-------+-----------+
+4 rows in set (0.001 sec)
+
+
+
+5)
+MariaDB [dbms]> select DISTINCT * from Order_Detail where LineNum  = '1' and (Color = 'Blue' or  Color = 'Red'); 
++----------+---------+----------------------+------+-------+-----------+
+| OrderNum | LineNum | ProdNum              | Qty  | Color | UnitPrice |
++----------+---------+----------------------+------+-------+-----------+
+|        3 |       1 | Bike28A              |    1 | Red   |    300.00 |
+|        6 |       1 | Bike28A              |    1 | Blue  |    259.00 |
+|        8 |       1 | Bike28B              |    1 | Red   |    455.00 |
+|        9 |       1 | Bike28B              |    1 | Blue  |    255.00 |
+|       12 |       1 | Bike31A              |    1 | Red   |    525.00 |
+|       13 |       1 | Bike31A              |    1 | Blue  |    455.00 |
+|       16 |       1 | Bike28Schwinn        |    1 | Red   |    955.00 |
+|       17 |       1 | SchwinBike28Mountain |    1 | Blue  |    855.00 |
++----------+---------+----------------------+------+-------+-----------+
+8 rows in set (0.001 sec)
+
+
+
+
+
+
+
+
+
+6) Select the minimum price from order_detail table.
+
+MariaDB [dbms]> select min(unitprice) from Order_Detail;
++----------------+
+| min(unitprice) |
++----------------+
+|          60.00 |
++----------------+
+1 row in set (0.003 sec)
+
+    
+7) 
+MariaDB [dbms]> select min(OrderDate) from Orders;
++----------------+
+| min(OrderDate) |
++----------------+
+| 2004-01-03     |
++----------------+
+1 row in set (0.000 sec)
+   
+8)
+
+
+MariaDB [dbms]> select OrderNum from Orders where OrderDate BETWEEN 2004-01-11 and 2004-01-23;
+
+Empty set, 2 warnings (0.001 sec) 
+
+
+9)
+
+
+MariaDB [dbms]> SELECT * FROM Order_Detail WHERE ProdNum IN('Bike28A','Bike28Schwinn','Helmet');
++----------+---------+---------------+------+-------+-----------+
+| OrderNum | LineNum | ProdNum       | Qty  | Color | UnitPrice |
++----------+---------+---------------+------+-------+-----------+
+|        3 |       1 | Bike28A       |    1 | Red   |    300.00 |
+|        6 |       1 | Bike28A       |    1 | Blue  |    259.00 |
+|        7 |       1 | Bike28A       | NULL | Green |    525.00 |
+|       12 |       2 | Helmet        |    1 | Red   |     75.00 |
+|       16 |       1 | Bike28Schwinn |    1 | Red   |    955.00 |
++----------+---------+---------------+------+-------+-----------+
+5 rows in set (0.000 sec)
+
+10) 
+
+MariaDB [dbms]> SELECT *
+    -> FROM Orders 
+    -> WHERE SalesRepNum is Null;
++---------+----------+------------+----------+-------------+
+| AcctNum | OrderNum | OrderDate  | StoreNum | SalesRepNum |
++---------+----------+------------+----------+-------------+
+| 4552    |       17 | 2004-01-27 | 1        | NULL        |
++---------+----------+------------+----------+-------------+
+1 row in set (0.001 sec)
+
+
+11) 
+
+MariaDB [dbms]> SELECT DISTINCT COUNT(*) FROM Orders;
++----------+
+| COUNT(*) |
++----------+
+|       13 |
++----------+
+1 row in set (0.000 sec)
+
+
+
+
+12) 
+
+MariaDB [dbms]> SELECT COUNT(DISTINCT ProdNum) FROM Order_Detail WHERE LineNum = '1';
++-------------------------+
+| COUNT(DISTINCT ProdNum) |
++-------------------------+
+|                       8 |
++-------------------------+
+1 row in set (0.001 sec)
+
+
+13) 
+
+MariaDB [dbms]> SELECT CONCAT('Lowest Price Qty Product: ',min(UnitPrice*Qty)) Price FROM Order_Detail union SELECT CONCAT('Highest Price Qty Product: ',max(UnitPrice*Qty)) Price From Order_Detail;
++-----------------------------------+
+| Price                             |
++-----------------------------------+
+| Lowest Price Qty Product: 60.00   |
+| Highest Price Qty Product: 955.00 |
++-----------------------------------+
+2 rows in set (0.001 sec)
+
+14) 
+
+MariaDB [dbms]> SELECT COUNT(DISTINCT ProdNum) FROM Order_Detail GROUP BY ProdNum HAVING min(Qty) > 1;
+Empty set (0.001 sec)
+
+
+
+

@@ -23,13 +23,10 @@ class Sequence<Base>
     this(defaultSize);
   }
 
-  public void add(Base object)
-  {
-    if (count >= objects.length)
-    {
+  public void add(Base object) {
+    if (count >= objects.length) {
       Base[] newObjects = (Base [])new Object[objects.length + increment];
-      for (int index = 0; index < objects.length; index = index + 1)
-      {
+      for (int index = 0; index < objects.length; index = index + 1) {
         newObjects[index] = objects[index];
       }
       /*magic here, taking

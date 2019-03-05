@@ -1,0 +1,15 @@
+3	1	Bike28A	1	Red	300
+6	1	Bike28A	1	Blue	259
+7	1	Bike28A	\N	Green	525
+8	1	Bike28B	1	Red	455
+8	2	ridinggloves	1	White	60
+9	1	Bike28B	1	Blue	255
+10	1	Bike28B	1	Green	199
+11	1	Moped77	1	Black	955
+12	1	Bike31A	1	Red	525
+12	2	Helmet	1	Red	75
+13	1	Bike31A	1	Blue	455
+14	1	Bike28	1	Orange	255
+15	1	Bike28Cruiser	1	White	199
+16	1	Bike28Schwinn	1	Red	955
+17	1	SchwinBike28Mountain	1	Blue	855
