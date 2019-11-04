@@ -1,0 +1,79 @@
+".vimrc location /home/issenur/.vimrc
+set number                                                                     
+set relativenumber                                                             
+set colorcolumn=80                                                              
+set hidden                                                                      
+                                                                                
+"set laststatus=1                                                               
+"set statusline=%!getcwd()                                                      
+"set ruler                                                                      
+                                                                                
+"set showmatch                                                                  
+"set modeline                                                                   
+"set title                                                                      
+                                                                                
+set undofile                                                                    
+set undodir=$HOME/.vim/undo                                                     
+set undolevels=1000                                                             
+set undoreload=10000                                                            
+                                                                                
+set shiftwidth=4                                                                
+set tabstop=4                                                                   
+                                                                                
+"these two make colors possible                                                 
+let &t_Co=256                                                                   
+syntax enable                                                                   
+colorscheme everythinglit                                                       
+iab qm int main()                                                               
+\<CR>{                                                                          
+\<CR>                                                                           
+\<CR>   return 0;                                                               
+\<CR>}                                                                          
+                                                                                
+iab qfor    for(int i = 0; i <= size -1; i++)                                   
+\<CR>   {                                                                       
+\<CR>                                                                           
+\<CR>      System.out.println("");                                              
+\<CR>                                                                           
+\<CR>   }                                                                       
+                                                                                
+iab qout    System.out.println("");                                             
+                                                                                
+iab qif    if(){                                                                
+\<CR>      System.out.println("");                                              
+\<CR>   }else{                                                                  
+\<CR>      System.out.println("");                                              
+\<CR>   }                                                                       
+iab qtry                try{                                                    
+\<CR>   }catch(ExceptionName n){                                                
+\<CR>       System.out.println("");                                             
+\<CR>   }                                                                       
+                                                                                
+iab qwhile while(count > 0)                                                     
+\<CR>   {                                                                       
+\<CR>                                                                           
+\<CR>   }                                                                       
+                                                                                
+iab qdo  do                                                                     
+\<CR>   {                                                                       
+\<CR>                                                                           
+\<CR>   }while();                                                               
+                                                                                
+set foldmethod=marker                                                           
+set foldmarker={,}                                                              
+"set foldnestmax=10                                                             
+set nofoldenable                                                                
+"set foldlevel=2                                                                
+                                                                                
+iab qarray int b [size];                                                        
+iab qco cout <<   << "\n";                                                      
+iab qsco std::cout <<   << "\n";                                                
+iab qci cin >>  >> "\n";                                                        
+iab qsci std::cin >> variname ;                                                 
+iab qnn "\n";                                                                   
+iab qn "\n"                                                                     
+iab qt "\t"                                                                     
+iab qi #include <iostream>                                                      
+iab qii #include ""                                                             
+iab qr return 0;                                                                
+cabb src %s/this/tothis/gci                                                     

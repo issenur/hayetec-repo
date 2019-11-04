@@ -1,0 +1,157 @@
+" Vim colors location /home/issenur/.vim/colors       
+                                                                                
+" --------------------------------                                              
+set background=dark                                                             
+" - or ---------------------------                                              
+set background=light                                                            
+" --------------------------------                                              
+                                                                                
+highlight clear                                                                 
+if exists("syntax_on")                                                          
+    syntax reset                                                                
+endif                                                                           
+let g:colors_name="everythinglit"                                               
+                                                                                
+"----------------------------------------------------------------               
+" General settings                                              |               
+"----------------------------------------------------------------               
+"----------------------------------------------------------------               
+" Syntax group   | Foreground    | Background    | Style        |               
+"----------------------------------------------------------------               
+                                                                                
+"(93=purple) (27=deepblue) (9=red) (220=golden) (214=darkgolden)                                 
+"(75=lightblue) (51=lightestblue) (105=lightpurple)                             
+" --------------------------------                                              
+" Editor settings                                                               
+" --------------------------------                                              
+hi Normal          ctermfg=15    ctermbg=none    cterm=none                     
+hi Cursor          ctermfg=75    ctermbg=none    cterm=none                     
+hi CursorLine      ctermfg=206    ctermbg=none    cterm=none                    
+hi LineNr          ctermfg=105    ctermbg=none    cterm=bold                    
+hi CursorLineNR    ctermfg=220    ctermbg=none    cterm=bold "current line nu   
+                                                                                
+" -----------------                                                             
+" - Number column -                                                             
+" -----------------                                                             
+hi CursorColumn    ctermfg=206    ctermbg=none    cterm=none                    
+hi FoldColumn      ctermfg=206    ctermbg=none    cterm=none                    
+hi SignColumn      ctermfg=206    ctermbg=none    cterm=none                    
+hi Folded          ctermfg=51    ctermbg=none    cterm=none                     
+                                                                                
+" -------------------------                                                     
+" - Window/Tab delimiters -                                                     
+" -------------------------                                                     
+hi VertSplit       ctermfg=206    ctermbg=none    cterm=none                    
+hi ColorColumn     ctermfg=15    ctermbg=93    cterm=none                       
+hi TabLine         ctermfg=93    ctermbg=none    cterm=none                     
+hi TabLineFill     ctermfg=93    ctermbg=none    cterm=none                     
+hi TabLineSel      ctermfg=93    ctermbg=none    cterm=none                     
+                                                                                
+" -------------------------------                                               
+" - File Navigation / Searching -                                               
+" -------------------------------                                               
+hi Directory       ctermfg=15    ctermbg=15    cterm=none                       
+hi Search          ctermfg=9    ctermbg=none    cterm=none                      
+hi IncSearch       ctermfg=9    ctermbg=none    cterm=none                      
+                                                                                
+" -----------------                                                             
+" - Prompt/Status -                                                             
+" -----------------                                                             
+hi StatusLine      ctermfg=93    ctermbg=none    cterm=none                     
+hi StatusLineNC    ctermfg=93    ctermbg=none    cterm=none                     
+hi WildMenu        ctermfg=206    ctermbg=none    cterm=none                    
+hi Question        ctermfg=51    ctermbg=none    cterm=none                     
+hi Title           ctermfg=27   ctermbg=none    cterm=none                      
+hi ModeMsg         ctermfg=51   ctermbg=none    cterm=none                      
+hi MoreMsg         ctermfg=51    ctermbg=none    cterm=none                     
+                                                                                
+" --------------                                                                
+" - Visual aid -                                                                
+" --------------                                                                
+hi MatchParen      ctermfg=93    ctermbg=190    cterm=none                      
+hi Visual          ctermfg=93   ctermbg=15    cterm=none                        
+hi VisualNOS       ctermfg=93    ctermbg=15   cterm=none                        
+hi NonText         ctermfg=75   ctermbg=none    cterm=none                      
+hi Todo            ctermfg=105    ctermbg=49    cterm=none                      
+hi Underlined      ctermfg=75    ctermbg=none    cterm=none                     
+hi Error           ctermfg=75    ctermbg=none    cterm=none                     
+hi ErrorMsg        ctermfg=75    ctermbg=none    cterm=none                     
+hi WarningMsg      ctermfg=206    ctermbg=none    cterm=none                    
+hi Ignore          ctermfg=206    ctermbg=none    cterm=none                    
+hi SpecialKey      ctermfg=206    ctermbg=none    cterm=none                    
+                                                                                
+" --------------------------------                                              
+" Variable types                                                                
+" --------------------------------                                              
+hi Constant        ctermfg=51    ctermbg=none    cterm=none                     
+hi String          ctermfg=208  ctermbg=none    cterm=none                      
+hi StringDelimiter ctermfg=51    ctermbg=none    cterm=none                     
+hi Character       ctermfg=51   ctermbg=none    cterm=none                      
+hi Number          ctermfg=51    ctermbg=none    cterm=none                     
+hi Boolean         ctermfg=105   ctermbg=none    cterm=none                     
+hi Float           ctermfg=51    ctermbg=none    cterm=none                     
+hi Identifier      ctermfg=27    ctermbg=none    cterm=none                     
+hi Function        ctermfg=93    ctermbg=none    cterm=none "python_function_   
+                                                                                
+" --------------------------------                                              
+" Language constructs                                                           
+" --------------------------------                                              
+hi Statement       ctermfg=27    ctermbg=none    cterm=bold                     
+hi Conditional     ctermfg=27    ctermbg=none    cterm=bold                     
+hi Repeat          ctermfg=93    ctermbg=none    cterm=none                     
+hi Label           ctermfg=206    ctermbg=none    cterm=none                    
+hi Operator        ctermfg=105    ctermbg=none    cterm=none                    
+hi Keyword         ctermfg=105   ctermbg=none    cterm=none                     
+hi Exception       ctermfg=51    ctermbg=none    cterm=none                     
+hi Comment         ctermfg=220    ctermbg=none    cterm=none                    
+                                                                                
+hi Special         ctermfg=51    ctermbg=none    cterm=none                     
+hi SpecialChar     ctermfg=105    ctermbg=none    cterm=none                    
+hi Tag             ctermfg=206    ctermbg=none    cterm=none                    
+hi Delimiter       ctermfg=206    ctermbg=none    cterm=none                    
+hi SpecialComment  ctermfg=214   ctermbg=none    cterm=none                     
+hi Debug           ctermfg=206    ctermbg=none    cterm=none                    
+                                                                                
+" ----------                                                                    
+" - C like -                                                                    
+" ----------                                                                    
+hi PreProc         ctermfg=51    ctermbg=none    cterm=none                     
+hi Include         ctermfg=105    ctermbg=none    cterm=none                    
+hi Define          ctermfg=206   ctermbg=none    cterm=none                     
+hi Macro           ctermfg=206   ctermbg=none    cterm=none                     
+hi PreCondit       ctermfg=93    ctermbg=none    cterm=none                     
+                                                                                
+hi Type            ctermfg=105    ctermbg=none    cterm=none                    
+hi StorageClass    ctermfg=27      ctermbg=none    cterm=none                   
+hi Structure       ctermfg=105    ctermbg=none    cterm=none                    
+hi Typedef         ctermfg=75    ctermbg=none    cterm=none                     
+                                                                                
+" --------------------------------                                              
+" Diff                                                                          
+" --------------------------------                                              
+hi DiffAdd         ctermfg=51    ctermbg=none    cterm=none                     
+hi DiffChange      ctermfg=51    ctermbg=none    cterm=none                     
+hi DiffDelete      ctermfg=51    ctermbg=none    cterm=none                     
+hi DiffText        ctermfg=105    ctermbg=none    cterm=none                    
+                                                                                
+" --------------------------------                                              
+" Completion menu                                                               
+" --------------------------------                                              
+hi Pmenu           ctermfg=75    ctermbg=none    cterm=none                     
+hi PmenuSel        ctermfg=75    ctermbg=none    cterm=none                     
+hi PmenuSbar       ctermfg=75    ctermbg=none    cterm=none                     
+hi PmenuThumb      ctermfg=75    ctermbg=none    cterm=none                     
+                                                                                
+" --------------------------------                                              
+" Spelling                                                                      
+" --------------------------------                                              
+hi SpellBad        ctermfg=206   ctermbg=none    cterm=none                     
+hi SpellCap        ctermfg=206    ctermbg=none    cterm=none                    
+hi SpellLocal      ctermfg=206    ctermbg=none    cterm=none                    
+hi SpellRare       ctermfg=206    ctermbg=none    cterm=none                    
+                                                                                
+"--------------------------------------------------------------------           
+" Specific settings                                                 |           
+"--------------------------------------------------------------------           
+~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+~                                                                                                         

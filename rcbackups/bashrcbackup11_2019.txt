@@ -1,3 +1,4 @@
+﻿#.bashrc location /home/issenur/.bashrc
 # ~/.bashrc: executed by bash(1) for non-login shells.                          
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)      
 # for examples                                                                  
@@ -75,7 +76,7 @@ esac
 # enable color support of ls and also add handy aliases                         
 if [ -x /usr/bin/dircolors ]; then                                              
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'                                                  
+    alias ls='tput reset && ls --color=auto'                                                  
                                                                                 
     #alias dir='dir --color=auto'                                               
     #alias vdir='vdir --color=auto'                                             
@@ -118,24 +119,27 @@ if ! shopt -oq posix; then
 fi                                                                              
                                                                                 
  cd () {                                                                      
-      builtin cd "$@" && ls                                                   
+      builtin cd "$@" && tput reset && ls                                                 
       }                                                                       
-      cd ~/hayetec-repo/c++                                                   
+      cd ~/ICS372GroupProject                                                   
                                                                               
                                                                               
- open () {                                                                    
+ o () {                                                                    
      if [ -d "$1" ]; then                                                     
          cd -- "$1"                                                           
      elif [ -f "$1" ]; then                                                   
-         vi -- "$1"                                                           
+         vim -- "$1"                                                           
      fi                                                                       
  }                                                                            
                                                                               
- alias searchfilesfor='grep -rilwr'                                           
- alias c='ls'                                                                 
+ alias searchfilesfor='grep -rilwr'
+ alias findfilestartingwith='find . -name'                                           
+ alias c='tput reset && ls'                                                                 
  alias b='cd ..'                                                              
  alias bb='cd ../../'                                                         
  alias ll='ls -la'                                                            
  alias g='g++ -o go'                                                          
  alias go='./go'                                                              
-                                                                                                         
+ alias ss='ssh ics311sp190209@sp-cfsics.metrostate.edu'
+ alias j='javac AddTwoNumbers.java'
+ alias k='java AddTwoNumbersDriver'                                                          
