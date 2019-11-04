@@ -1,0 +1,41 @@
+     Assembly listing for: problemNine.mas
+                Assembled: Wed Mar 20 01:22:43 CDT 2019
+
+         |         ORG 100          //
+         |                          	
+100 110E |  loop   LOAD A           //beginning of loop and load A in the accumulator
+101 310F |         ADD B            //Add A + B (A is inside accumulator)
+102 2110 |         STORE C          //Store the sum in C
+103 110E |         LOAD A           //Load A back in to the accumulator
+104 4111 |         SUBT one         //A - 1 is now in the accumulator 
+105 210E |         STORE A          //A = accumulator value
+106 110F |         LOAD B           //Load B back in to the accumulator
+107 4112 |         SUBT two         //B - 2 is now in the accumulator
+108 210F |         STORE B          //B = accumulator vaue
+109 110E |         LOAD A           //LOAD A back into the accumulator
+10A 410F |         SUBT B           //Subtract acc from B and put result in accu	
+10B 8800 |         SKIPCOND 800     //if A - B > 0 that means A >= B so stop(skip) loop
+10C 9100 |         JUMP loop        //restart from  the beginning of the loop       
+10D 7000 |         HALT             //Stop the Program
+         |                          	
+10E 0005 |  A      DEC 5            // A = 5
+10F 0009 |  B      DEC 9            // B = 9
+110 0000 |  C      DEC 0            // C = 0
+111 0001 |  one    DEC 1            // one = 1
+112 0002 |  two    DEC 2            // two = 2
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          A      |   10E   | 100, 103, 105, 109
+          B      |   10F   | 101, 106, 108, 10A
+          C      |   110   | 102
+          loop   |   100   | 10C
+          one    |   111   | 104
+          two    |   112   | 107
+         --------------------------------------------------
+
+

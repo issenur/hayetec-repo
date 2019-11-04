@@ -1,0 +1,42 @@
+     Assembly listing for: hwk3.mas
+                Assembled: Sun Mar 17 20:17:58 CDT 2019
+
+         |         ORG 100           
+         |                          	
+100 110D |  loop   LOAD A            
+101 310E |         ADD B             
+102 210F |         STORE C           
+103 110D |         LOAD A            
+104 4111 |         SUBT one          
+105 110E |         LOAD B            
+106 4112 |         SUBT two          
+107 110D |         LOAD A            
+108 410E |         SUBT B            
+109 2110 |         STORE D           
+10A 1110 |         LOAD D            
+10B 8400 |         SKIPCOND 400      
+10C 9100 |         JUMP loop         
+         |                          	
+10D 0005 |  A      DEC 5             
+10E 0009 |  B      DEC 9             
+10F 0000 |  C      DEC 0             
+110 0000 |  D      DEC 0             
+111 0001 |  one    DEC 1             
+112 0002 |  two    DEC 2             
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          A      |   10D   | 100, 103, 107
+          B      |   10E   | 101, 105, 108
+          C      |   10F   | 102
+          D      |   110   | 109, 10A
+          loop   |   100   | 10C
+          one    |   111   | 104
+          two    |   112   | 106
+         --------------------------------------------------
+
+

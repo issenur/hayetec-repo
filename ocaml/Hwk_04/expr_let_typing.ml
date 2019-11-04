@@ -28,7 +28,7 @@ type expr
   | Let of string * expr * expr
   | Id of string
 
-type environment = (string * value) list
+Type environment = (string * value) list
 
 type typ =
   | IntType

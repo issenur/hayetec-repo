@@ -42,11 +42,12 @@ class Words:
         return first2
 
 prez = Words(101)
-prez.add('Abdihafit')
-prez.add('Zakaria')
-prez.add('Isse')
-prez.add('Hussein')
-prez.add('Ahmed')
-prez.add('Nur')
+prez.add('Warsame')
+prez.add('Sugule')
+prez.add('Farah')
+prez.add('Sharmake')
+prez.add('Warfa')
+prez.add('Gaarad')
+prez.add('Suldan')
 
-print(prez.make(7))
+print(prez.make(6))

@@ -1,0 +1,35 @@
+     Assembly listing for: ProblemTen.mas
+                Assembled: Wed Mar 20 02:59:19 CDT 2019
+
+         |         ORG 100          //
+         |                          	
+100 110C |         LOAD A           //load value A into accumulator
+101 410D |         SUBT B           //Subtract accumulator value from value B place result in accum.
+102 8400 |         SKIPCOND 400      
+103 9108 |         JUMP else         
+104 110C |         LOAD A            
+105 310D |         ADD B             
+106 210E |         STORE C           
+107 7000 |         HALT              
+108 110C |  else   LOAD A            
+109 410D |         SUBT B            
+10A 210E |         STORE C           
+10B 7000 |         HALT              
+         |                          
+10C 0005 |  A      DEC 5            // A = 5
+10D 0009 |  B      DEC 9            // B = 5
+10E 0000 |  C      DEC 0             
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          A      |   10C   | 100, 104, 108
+          B      |   10D   | 101, 105, 109
+          C      |   10E   | 106, 10A
+          else   |   108   | 103
+         --------------------------------------------------
+
+

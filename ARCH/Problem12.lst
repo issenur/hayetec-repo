@@ -1,0 +1,40 @@
+     Assembly listing for: Problem12.mas
+                Assembled: Thu Mar 21 00:02:25 CDT 2019
+
+         |          ORG 100            
+         |                            
+100 1??? |  forloop LOAD count         
+   **** Operand undefined.
+101 310D |          ADD oneHun         
+102 E110 |          STOREI elemArr     
+103 1110 |          LOAD elemArr       
+104 310E |          ADD one            
+105 2110 |          STORE elemArr      
+106 A000 |          CLEAR              
+107 110F |          LOAD size          
+108 410E |          SUBT one           
+109 210F |          STORE size         
+10A 8400 |          SKIPCOND 400       
+10B 9100 |          JUMP forloop       
+10C 7000 |          HALT               
+         |                            		    
+10D 0064 |  oneHun  DEC 100            
+10E 0001 |  one     DEC 1              
+10F 000A |  size    DEC 10             
+110 0112 |  elemArr HEX 112            
+         |                                   
+
+1 error found.  Assembly unsuccessful.
+
+         SYMBOL TABLE
+         ---------------------------------------------------
+          Symbol  | Defined | References 
+         ---------+---------+-------------------------------
+          elemArr |   110   | 102, 103, 105
+          forloop |   100   | 10B
+          one     |   10E   | 104, 108
+          oneHun  |   10D   | 101
+          size    |   10F   | 107, 109
+         ---------------------------------------------------
+
+

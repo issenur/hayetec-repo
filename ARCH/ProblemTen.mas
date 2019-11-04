@@ -1,0 +1,24 @@
+﻿	#10.)
+
+	ORG 100 		//start from origin
+	
+	LOAD A		//load value A into accumulator
+	SUBT B		//subtract B from the accumulator
+	SKIPCOND 400	//If A – B = 0 skip the else jump
+	JUMP	else
+	
+	//THEN CLAUSE STARTS HERE
+	LOAD  A		//A goes into the accumulator
+	ADD   B		//B is added to A
+	STORE C		//Store the result in B
+	HALT			//Stop the program
+	//THEN CLAUSE ENDS HERE
+
+else,LOAD  A		//load A into the accumulator
+	SUBT  B		//subtract B from the accumulator
+	STORE C		//Store the result in c
+	HALT			//Stop the Program
+
+	A,	DEC 5	// A = 5
+	B,	DEC 9	// B = 5
+	C,	DEC 0	// C = 0

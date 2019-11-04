@@ -1,21 +1,27 @@
-import java.util.*;
+import java.io.*;              
+import java.util.ArrayList;    
 
 public class Graph {
 
 	ArrayList<Node> nodeList;
 	ArrayList<Edge> edgeList;
-	
+	Tour tour;	
 	public Graph() {
 		nodeList = new ArrayList<Node>();
 		edgeList = new ArrayList<Edge>();
+		tour = new Tour(0,0,0);
 	}
-	
+
 	public ArrayList<Node> getNodeList() {
 		return nodeList;
 	}
-	
+
 	public ArrayList<Edge> getEdgeList() {
 		return edgeList;
+	}
+
+	public Tour getTour() {
+		return tour;
 	}
 	
 	public void addNode( Node n ) {
@@ -24,6 +30,10 @@ public class Graph {
 	
 	public void addEdge( Edge e ) {
 		edgeList.add( e );
+	}
+	
+	public void setTour( Tour theTour ) {
+		tour = theTour;
 	}
 	
 	public String toString() {

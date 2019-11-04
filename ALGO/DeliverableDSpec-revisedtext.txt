@@ -1,0 +1,168 @@
+﻿ICS 340 Programming Project, Deliverable D (100 pts)
+Specification:	
+Start with your Java program “prog340” which implements Deliverables A and B and C (although you really don’t need to successfully implement previous deliverables to do this program, but Deliverable A should still work!).
+Recall the definition of the Traveling Salesperson Problem (the TSP):  Given a set of cities, you want to find the shortest route that visits every city and ends up back at the original starting city.  For the purposes of this problem, every city will be directly reachable from every other city (think flying from city to city).
+Your goal is to solve the TSP by creating the optimal (shortest total distance) bitonic tour.  A bitonic tour is a TSP tour that starts at the southernmost city, goes north to the northernmost city (stopping zero or more times along the way, with every stop being north of the previous one), then goes back to the southernmost city, stopping at every remaining city, from north to south.1  There are a variety of bitonic tour specifications, I choose to use this one from stackexchange.  It has a nice description that lends itself to outputting specified intermediate results.  The description in this assignment is a close paraphrasing of the description.
+Note that I will also use the term bitonic path.  A bitonic path is a path from a northernmost city that visits a set of other cities that goes strictly south through zero or more of the cities to the southernmost city, then goes strictly north through the remaining cities, but does not return to the starting (northernmost) city.
+Revision
+There was an error in the equations.  This does mess things up a bit.  The corrected equations are highlighted in yellow.  Because I wrote them with an equation tool, I can’t highlight only the part that is wrong.  
+In the formula for z(k), d(cn,ck) should have been d(cn,ck-1).
+In the formula for z(p), d(cn,ck) should have been d(cn,ci-1).
+The Input Files
+The input files will look very similar to the input files for Deliverable C.  The only difference is that the Labels (Values) of the Nodes have real meaning here.  The Label of any node (city) will be a floating point number indicating its latitude, in degrees.minutes format.2  This way you can sort the Nodes by latitude as part of the algorithm.  For instance, here is the file for the 5-city problem (D5.txt).  The Labels (“Val”) are non-negative floating point numbers.  The input files are symmetrical; the distance from city A to city B always is the same as the distance from city B to city A.
+~               Val    C    H    K    M    P  
+Cleveland     41.28    ~ 1114  700  630  360
+Houston       29.45 1114    ~  644 1056 1341
+KansasCity    39.05  700  644    ~  413 1039
+Minneapolis   44.58  630 1056  413    ~  985
+Philadelphia  39.57  360 1341 1039  985    ~
+The Algorithm
+Denote the cities c1, c2, …, cn from south to north.  This is a dynamic programming algorithm, so it’s really a recursive algorithm with optimal substructure and overlapping subproblems.  But what are these subproblems?  Note there will be two optimal bitonic tours which are mirror images of each other (e.g., the tour Houston  Kansas City  Minneapolis  Cleveland  Philadelphia  Houston is the same as the tour Houston  Philadelphia  Cleveland  Minneapolis  Kansas City  Houston for our purposes.)
+We know that somewhere during this tour the next-to-northernmost city, cn-1 will be visited.  It must be visited either just before, or just after, the northernmost city.  Thus the edge (cn-1, cn) [either cn-1  cn or cn  cn-1] will be in the tour.  So the optimal bitonic tour contains within it the optimal bitonic path starting at cn, going south to c1 while visiting some cities along the way and then going from c1 north to cn-1 and stopping at every unvisited city on the way back.3 
+Any such bitonic path from cn to cn-1 must first visit some city ck, k < n-1, which could be c1.  That is, edge (cn, ck) is in the optimal bitonic path/tour for some city ck.
+This is a bitonic path – it goes north to south then back north – so if k ≠ n-2, every city north of ck must be visited on the northbound return trip.  So the bitonic path from cn to cn-1 must end with ck+1, ck+2, …, cn-1.  (Note if k = n-2, this path is empty.)  So the bitonic path from cn to cn-1, for some k, must look like:
+Cn  ck  … 0 or more cities going south …  c1  … 0 or more cities going north …  ck+1  ck+2  …  cn-1.
+So ck  … 0 or more cities going south …  c1  … 0 or more cities going north …  ck+1 is itself a bitonic path, and the bitonic path (and hence bitonic tour) will contain the optimal bitonic path from ck  ck+1.  This shows optimal substructure and overlapping subproblems.
+So, to recap, we want to find the shortest total distance bitonic tour from the southernmost city c1 back to itself, going first north to the northernmost city (cn) then back south.  To do this, we argued that we need to find the shortest bitonic path from the northernmost city cn down to the southernmost city c1 then back up to the next-to-northernmost city cn-1.  And to do this, for some city ck, we need to find the shortest bitonic path from city ck to city ck+1, or equivalently from city ck+1 to city ck.4
+For any i > 1, let z(i) denote the length of the shortest-distance bitonic path from ci to ci-1.  Let d(ci, cj) denote the length of the edge from city ci to city cj.  So, there must be some city ck that gives us the shortest bitonic path, and for this k < n-1, the shortest bitonic path is 
+ .  The shortest bitonic path overall is the shortest of these:
+.  The same reasoning applies for all p < n, so:
+, for all p.
+Note that z(2) = d(c2, c1).  We can use this recursion to successively calculate z(p) for p = 3, .., n, and then the length of the bitonic tour starting at southernmost city cn = z(n) + d(cn-1, cn).  
+The Assignment
+For each input file, for each value of p, print the value of z(p) and the bitonic path from cp to c1.  
+Example:  D7.txt
+Here’s the file, augmented with a city number, and a map of the cities and distances that might be helpful.
+   ~              Val    C    D    d    N    L    P    W
+c5 Chicago      41.50    ~  967 1004  473  296  398  863
+c1 Dallas       32.26  967    ~  794  663  631  944 1297
+c4 Denver       39.45 1004  794    ~ 1158  850  924 1097
+c2 Nashville    36.10  473  663 1158    ~  309  875 1338
+c3 StLouis      38.37  296  631  850  309    ~  557 1013
+c6 StPaul       44.56  398  944  924  875  557    ~  458
+c7 Winnipeg     49.53  863 1297 1097 1338 1013  458    ~
+
+Calculation of z-values
+z(2):  It is immediate that z(2) = d(Nashville,Dallas) = 663.  So the shortest bitonic path is c1 (Dallas)  c2 (Nashville).  It’s trivially a bitonic path.
+ 
+z(3) contains the 3 southernmost cities.  It is the shortest bitonic path from c3 south to c1 then north to c2.  There’s only one way to do this (if mirror images are identical):  c3 (St. Louis)  c1 (Dallas)  c2 (Nashville).  So z(3) = 631 + 663 = 1294.  In equations, p = 3, so the only legal j with 1<j<p is j = 2.  
+z(3) = d(c3,c1) + z(2) = 631 + 663 = 1293.  Note p-2 < j, so the final summation is never done.
+
+z(4) contains the 4 southernmost cities.  It is the shortest bitonic path from c4 south to c1 then north to c3.   In equations, j = 2 or 3, so 
+= min of:
+(j=2): d(c4,c1) + z(2) + d(c2,c3) = 794 + 663 + 309 = 1766	
+(j=3): d(c4,c2) + z(3) = 1158 + 1293 = 2451 (final summation never done, j > p-2)
+So z(4) =1766.  To find the shortest bitonic path, note that it starts c4  c1, ends c2  c3, and has z(2) in the middle.  So the shortest bitonic path is:  c4 (Denver)  c1 (Dallas)  c2 (Nashville)  c3 (St. Louis).  
+
+z(5) contains the 5 southernmost cities.  It is the shortest bitonic path from c5 south to c1 then north to c4.   In equations, j = 2, 3, or 4, so 
+= min of:
+(j=2): d(c5,c1) + z(2) + d(c2,c3) + d(c3,c4) = 976 + 663 + 309 + 850 = 2798
+(j=3): d(c5,c2) + z(3) + d(c3,c4) = 473 + 1294 + 850 = 2617
+(j=4): d(c5,c3) + z(4) = 296 + 1766 = 2062 (final summation never done, j > p-2)
+So z(5) =2062.  To find the shortest bitonic path, note that it starts c5  c3 with path z(4) concatenated to it.  So the shortest bitonic path is:  c5 (Chicago)  c3 (St. Louis)  c2 (Nashville)  c1 (Dallas)  c4 (Denver).
+
+z(6) contains the 6 southernmost cities.  It is the shortest bitonic path from c6 south to c1 then north to c5.   In equations, j = 2, 3,4, or 5, so:
+= min of:
+(j=2): d(c6,c1) + z(2) + d(c2,c3) + d(c3,c4) + d(c4,c5) = 944 + 663 + 309 + 850 + 1004 = 3770
+(j=3): d(c6,c2) + z(3) + d(c3,c4) + d(c4,c5) = 875 + 1293 + 850 + 1004 = 4022
+(j=4): d(c6,c3) + z(4) + d(c4,c5) = 557 + 2451 + 1004 = 4012
+(j=5): d(c6,c4) + z(5) = 924 + 2062 = 2986  (final summation never done, j > p-2)
+So z(6) = 2986.  To find the shortest bitonic path, note that it starts c6  c4 with path z(5) concatenated to it.  So the shortest bitonic path is:  c6 (St. Paul)  c4 (Denver)  c1 (Dallas)  c2 (Nashville)  c3 (St. Louis) c5 (Chicago).
+
+z(7) contains all 7 cities.  It is the shortest bitonic path from c7 south to c1 then north to c6.   In equations, j = 2, 3,4, 5, or 6, so:
+
+(j=2): d(c7,c1) + z(2) + d(c2,c3) + d(c3,c4) + d(c4,c5) + d(c5,c6) = 1297 + 663 + 309 + 850 + 1004 + 398 = 4521
+(j=3): d(c7,c2) + z(3) + d(c3,c4) + d(c4,c5) + d(c5,c6) = 1338 + 1293 + 850 + 1004 + 398 = 4883
+(j=4): d(c7,c3) + z(4) + d(c4,c5) + d(c5,c6) = 1013 + 1766 + 1004 + 398 = 4181
+(j=5): d(c7,c4) + z(5) + d(c5,c6) = 1097 + 2062 + 398 = 3557
+(j=6): d(c7,c5) + z(6) = 863 + 2986 = 3849  (final summation never done, j > p-2)
+So z(7) = 3557.  To find the shortest bitonic path, note that it starts c7  c4 with path z(5) concatenated to it, and ends with c5  c6.  So the shortest bitonic path is:  c7 (Winnipeg)  c4 (Denver)  c1 (Dallas)  c2 (Nashville)  c3 (St. Louis) c5 (Chicago)  c6 (St. Paul).
+
+Then the shortest tour will “close the loop” by going from St. Paul to Winnipeg by going 458 miles.  Then, since I asked for the tour from south to north and back, the final tour is:
+c1 (Dallas)  c2 (Nashville)  c3 (St. Louis) c5 (Chicago)  c6 (St. Paul)  c7 (Winnipeg)  c4 (Denver)  c1 (Dallas) for 4015 miles.  If you want to write it from north to south and back north again, that’s OK, too.
+
+z2                                                                                  z3
+          
+z4                                                                                  z5
+        
+z6                                                                                  z7
+        
+tour
+
+The Desired Output
+File D7.txt
+
+P = 2
+z(2) = 663
+Nashville
+Dallas
+
+P = 3
+z(3) = 1293
+StLouis
+Dallas
+Nashville
+
+P = 4
+z(4) = 1766
+Denver
+Dallas
+Nashville
+StLouis
+
+P = 5
+z(5) = 2062
+Chicago
+StLouis
+Nashville
+Dallas
+Denver
+
+P = 6
+z(6) = 2986
+StPaul
+Denver
+Dallas
+Nashville
+StLouis
+Chicago
+
+P = 7
+z(7) = 3557
+Winnipeg
+Denver
+Dallas
+Nashville
+StLouis
+Chicago
+StPaul
+
+BITONIC TOUR
+Distance = 4015
+Dallas
+Nashville
+StLouis
+Chicago
+StPaul
+Winnipeg
+Denver
+Dallas
+
+Suggestions
+You should be able to “eyeball” a solution to the 5-city case (using Google maps or something if you wish), and I’ve given you a solution to the 7-city case.  This should give you enough information to go on.  
+One way to do this would be to get the distances right first, and then to worry about the cities later.  
+Administrative Details
+The “prog340” handout describes the format of the input file for this and all program deliverables.
+As will always be the case in this class, the program must be written in Java and must run on the University Windows computer systems.  To ensure this I strongly recommend that you:
+    1. Use only Oracle Java 8 SE and earlier constructs, and 
+    2. Test it on the University systems before submission if you have any doubts about its ability to run on the University Windows.  
+    3. As before, minimize disruption to the existing codebase.  I realize that you will have to do some machinations to deal with Graphs having Edges with positive integral values differently from more general edges. 
+Submit:
+Submit the Java source code to the open Deliverable D submission folder. You may submit either the source code or a full Eclipse package, as with Deliverable A.
+Test Files:
+There are five test files that will be used for grading: D5.txt, D7.txt, D10.txt, D15.txt, and D49.txt.  
+Grading:
+60 points for passing the tests correctly.  There are five files at 10 points each, plus 5 points for Deliverable A functionality not being broken; it will be tested on one of the files.  10 points each for design and documentation.  This is an extra credit assignment.  Your total points will be added to the points of Deliverables A, B, and C.  Note that you cannot end up with more than 200 points (out of 175) for all the programs together.
+Due Dates:
+The program is due on Friday, May 3rd.  The time of submission is the time that D2L lists the file as submitted.
+

@@ -29,7 +29,7 @@ public class PrintfDemo{
 			System.out.println(false);	
 		}
 	
-	
+/*	
 		System.out.println(isInt(str));
 		System.out.println(isInt(ev));
 		System.out.println("----------------------------A-----------------");
@@ -68,7 +68,9 @@ public class PrintfDemo{
 		System.out.println(z.compareTo(one));
 		System.out.println(two.compareTo(one));	
 		System.out.println(one.compareTo(negOne));
-		
+*/		System.out.println("D".compareTo("E"));
+		System.out.println("A".compareTo("Z"));
+		System.out.println("Z".compareTo("A"));	
 	}
 	
 	public static int comparer(String left, String right) {               

@@ -1,0 +1,24 @@
+﻿#9.)
+
+	ORG	  100 //
+	
+loop, LOAD	  A		//beginning of loop and load A in the accumulator
+	ADD	  B		//Add A + B (A is inside accumulator)
+	STORE	  C		//Store the sum in C
+	LOAD	  A		//Load A back in to the accumulator
+	SUBT	 one		//A - 1 is now in the accumulator 
+	STORE   A		//A = accumulator value
+	LOAD	  B		//Load B back in to the accumulator
+	SUBT	 two  	//B - 2 is now in the accumulator
+	STORE	  B		//B = accumulator vaue
+	LOAD    A		//LOAD A back into the accumulator
+	SUBT	  B		//Subtract acc from B and put result in accu	
+	SKIPCOND    800	//if A - B > 0 that means A >= B so stop(skip) loop
+	JUMP        loop  //restart from  the beginning of the loop       
+	HALT		      //Stop the Program
+	
+	A,        DEC 5	 // A = 5
+	B,	    DEC 9	 // B = 9
+	C,	    DEC 0	 // C = 0
+	one,      DEC 1	 // one = 1
+	two,      DEC 2	 // two = 2
