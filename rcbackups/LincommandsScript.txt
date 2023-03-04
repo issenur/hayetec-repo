@@ -1,0 +1,59 @@
+SETTING UP SSH ON PYCHARM AND VISUAL STUDIO CODE
+------>in the .ssh config file paste the following
+sudo apt update
+sudo apt upgrade -y
+
+INTSTALLING NODE AND NPM
+curl -fsSL https://deb.nodesource.com/setup_14.x |
+sudo -E bash -
+sudo apt-get install -y nodejs
+
+INSTALLING PYTHON3 AND PYTHON3-VENV
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.8
+mkdir myportfolio
+sudo apt-get install python3-venv
+python3 -m venv virtenv
+source virtenv/bin/activate
+--->must be done inside virtual enviornment
+
+ADDING PIP INSIDE OF VIRTUAL ENVIORMENT
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+sudo apt install python3-pip -y
+sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+sudo apt install python3-django -y
+
+sudo apt install python3-dev libpq-dev
+pip3 install psycopg2
+pip install psycopg2-binary
+
+DJANGO REST FRAMEWORK INSTALL
+pip install djangorestframework
+pip install markdown 
+pip install django-filter
+
+python -m pip install django-cors-headers
+
+--->must exit virtual enviornment
+
+POSTGRESQL SETUP
+sudo apt install postgresql postgresql-contrib
+sudo apt install net-tools
+sudo netstat -naptu | grep 5432
+sudo systemctl start postgresql.service
+
+---->must be done inside of CLI psql
+sudo -u postgres psql
+ALTER ROLE ubuntu SET client_encoding TO 'utf8';
+CREATE USER ubuntu WITH PASSWORD 'ubuntu';
+ALTER ROLE ubuntu SET default_transaction_isolation TO 'read committed';
+ALTER ROLE ubuntu SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE swinnydb TO ubuntu;
+---->exit CLI psql with /q
+
+CREATE SUPERUSER
+--->must be done inside virtual enviornment
+python manage.py createsuperuser
+--->
