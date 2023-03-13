@@ -1,0 +1,54 @@
+--------------AWS EC2 SPIN UP-------
+os=ubuntu server 18.04
+instance name= "myproject"
+type=t3a.medium
+mem= 8gb
+security-group= allow-> http,https,ssh,custom tcp(0-65535)
+
+---------VISUAL STUDIO CODE SET UP----
+paste AWS public DNS address .ssh file 
+fromat should have host hostname identityfile user
+
+-----------INITIAL UBUNTU SERVER SET UP-----------
+sudo apt update
+sudo apt upgrade -y
+sudo usermod -aG sudo ubuntu
+sudo ufw allow OpenSSH
+
+----------INTSTALLING NODE AND NPM--------------
+curl -fsSL https://deb.nodesource.com/setup_14.x |
+sudo -E bash -
+sudo apt-get install -y nodejs
+
+----------SET UP GIT HUB AND PROJECT FOLDER-------
+Create a repository with the project name
+clone the repository in the home/ubuntu directory
+
+----------START REACTJS APP ---------------
+npx create-react-app frontend(inside of project folder run)
+
+---------INSTALL NGINX----------------------
+sudo apt install nginx
+
+------------SETTING UP SERVER BLOCKS---------
+sudo mkdir -p /var/www/somaliwomennetwork.org/html
+sudo chown -R $USER:$USER /var/www/somaliwomennetwork.org/html
+sudo chmod -R 755 /var/www/somaliwomennetwork.org
+sudo vim /var/www/somaliwomennetwork.org/html/index.html
+
+sudo vim /etc/nginx/sites-available/somaliwomennetwork.org
+
+sudo ln -s /etc/nginx/sites-available/somaliwomennetwork.org /etc/nginx/sites-enabled/
+
+sudo vim /etc/nginx/nginx.conf
+sudo nginx -t
+sudo systemctl restart nginx
+
+   
+------------------SECURE AND ENCRYPTY SITE--------
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo ufw allow 'Nginx Full'
+sudo certbot --nginx -d somaliwomennetwork.org -d www.somaliwomennetwork.org
+
+ 

@@ -1,0 +1,2 @@
+Certificate is saved at: /etc/letsencrypt/live/somaliwomennetwork.org-0001/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/somaliwomennetwork.org-0001/privkey.pem

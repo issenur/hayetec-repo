@@ -1,0 +1,1 @@
+rsync -r /home/ubuntu/myportfolio/frontend/build/  /var/www/issenur.com/html
